@@ -11,12 +11,20 @@ import javafx.scene.layout.VBox;
 
 public class Main extends Application {
 	@Override
+	/*
+	 * This method initialize the program, with the first scene controller
+	 */
 	public void start(Stage primaryStage) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			VBox root = loader.load(new FileInputStream("src/application/CalorieTrackeView.fxml"));
-			Scene scene = new Scene(root,1000,1000);
+			VBox root = loader.load(new FileInputStream("src/application/MainSceneTracker.fxml"));
+			FirstSceneController controller = (FirstSceneController)loader.getController();
+			controller.applicationStage = primaryStage;
+
+			
+			Scene scene = new Scene(root,600,600);
 			primaryStage.setScene(scene);
+			primaryStage.setTitle("Calories Tracker");
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
