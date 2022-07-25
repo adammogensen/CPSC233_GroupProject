@@ -39,7 +39,10 @@ public class FirstSceneController {
     	//setting a loader for all 3 choices.
     	FXMLLoader loader = new FXMLLoader();
     	
-    	//try..catch method for possible error and
+        //SecondScene secondAppliStage = new Stage();
+    	//secondAppliStage = applicationStage;
+    	
+    	//try..catch method for possible error and 
     	try {
     	if(userChoice.equals("Activist(one or more hour a day)")) {
     	VBox root = loader.load(new FileInputStream("src/application/ActivistTracker.fxml"));
@@ -50,6 +53,7 @@ public class FirstSceneController {
     	//setting stage
     	applicationStage.setTitle("Activist level calories tracker");
     	applicationStage.setScene(activistScene);
+    
 
     	}
     	else if(userChoice.equals("Intermediate(half to one hour a day)")) {
