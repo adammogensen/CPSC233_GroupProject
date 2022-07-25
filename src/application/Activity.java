@@ -2,7 +2,7 @@ package application;
 
 public class Activity {
 
-	private boolean low;
+	private boolean low; 
 	private boolean medium;
 	private boolean high;
 	private int duration;

@@ -9,6 +9,7 @@ public class User {
 	private int activityLevel; //Average activity level
 	private int dailyCalories;
 	private double BMI;
+
 	
 	
 	//Getters and Setters for instance variables
@@ -57,6 +58,7 @@ public class User {
 	void addActivity() {
 		
 	}
+	
 	int addMealEaten(int caloriesEaten) {
 		return dailyCalories;
 	}
