@@ -22,7 +22,7 @@ public class Main extends Application {
 			controller.applicationStage = primaryStage;
 
 			
-			Scene scene = new Scene(root,600,600);
+			Scene scene = new Scene(root,1000,1000);
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Calories Tracker");
 			primaryStage.show();
