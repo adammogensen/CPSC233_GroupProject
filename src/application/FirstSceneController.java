@@ -55,20 +55,28 @@ public class FirstSceneController {
     	//setting a loader for all 3 choices.
     	FXMLLoader loader = new FXMLLoader();
     	
+
+    	
         //SecondScene secondAppliStage = new Stage();
     	//secondAppliStage = applicationStage;
     	
     	//try..catch method for possible error and 
     	try {
     	if(userChoice.equals("Gain weight!")) {
+    		//connecting first stage with the second stage, so we could do further scene-changing.
     	VBox root = loader.load(new FileInputStream("src/application/GainTracker.fxml"));
+		GainerController gainController = (GainerController)loader.getController();
+		gainController.applicationStage = applicationStage;//connect gainControllerStage to primary stage.
+
     	
     	//setting scene
-    	Scene gainScene = new Scene(root,1000,1000);
+    	Scene gainScene = new Scene(root,800,800);
     	
     	//setting stage
     	applicationStage.setTitle("Gain weight calories tracker");
     	applicationStage.setScene(gainScene);
+
+    	
     
 
     	}
