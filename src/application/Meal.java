@@ -6,6 +6,7 @@ public class Meal {
 	private String nameOfMeal;
 	private ArrayList <Food> foodInMeal;
 	
+
 	//Constructor for Meal Class
 	Meal(String name){
 		nameOfMeal = name;

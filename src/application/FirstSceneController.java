@@ -63,6 +63,7 @@ public class FirstSceneController {
     	//try..catch method for possible error and 
     	try {
     	if(userChoice.equals("Gain weight!")) {
+    		
     		//connecting first stage with the second stage, so we could do further scene-changing.
     	VBox root = loader.load(new FileInputStream("src/application/GainTracker.fxml"));
 		GainerController gainController = (GainerController)loader.getController();
@@ -75,8 +76,6 @@ public class FirstSceneController {
     	//setting stage
     	applicationStage.setTitle("Gain weight calories tracker");
     	applicationStage.setScene(gainScene);
-
-    	
     
 
     	}
@@ -98,5 +97,17 @@ public class FirstSceneController {
     		chooseNothingErrorLabel.setText("Your fxml file is missing, please make sure they are under src/application .");
     	}
     	
+    }
+    
+    void storeUserData(User u) {
+    	boolean isValidInput = false;
+    	try {
+    	u.setAge(Integer.parseInt(userAgeTextField.getText()));
+    	isValidInput = true;
+    	}
+    	catch(NumberFormatException e) {
+    		isValidInput = false;
+    		
+    	}
     }
 }
