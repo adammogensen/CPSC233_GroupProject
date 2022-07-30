@@ -39,6 +39,11 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin>
             </TextField>
+            <Label fx:id="nameError" text=" " textFill="RED">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
@@ -55,6 +60,11 @@
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin></TextField>
+            <Label fx:id="ageError" text=" " textFill="#ee0707">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
@@ -67,15 +77,28 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin>
             </Label>
-            <TextField fx:id="userSexTextField">
+            <ChoiceBox prefWidth="150.0">
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </HBox.margin></TextField>
+               </HBox.margin>
+               <items>
+             <FXCollections fx:factory="observableArrayList">
+                   <String fx:value="Male" />
+                   <String fx:value="Female" />
+                   <String fx:value="" />
+             </FXCollections>
+            </items>
+            </ChoiceBox>
+            <Label fx:id="sexError" text=" " textFill="#f80101">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label text="Weight:">
+            <Label text="Weight(Kg):">
                <font>
                   <Font size="14.0" />
                </font>
@@ -87,11 +110,16 @@
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin></TextField>
+            <Label fx:id="weightError" text=" " textFill="#eb0404">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label text="Height:">
+            <Label text="Height(in cm):">
                <font>
                   <Font size="14.0" />
                </font>
@@ -103,6 +131,11 @@
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin></TextField>
+            <Label fx:id="heightError" text=" " textFill="#f80202">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
          </children>
       </HBox>
       <Label prefHeight="46.0" prefWidth="508.0" text="Please choose your active level in the box below,press done to continue.">

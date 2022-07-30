@@ -6,6 +6,8 @@ public class Meal {
 	private String nameOfMeal;
 	private ArrayList <Food> foodInMeal;
 	
+		
+	
 	//Getters/Setters
 	String getNameOfMeal() {
 		return nameOfMeal;
