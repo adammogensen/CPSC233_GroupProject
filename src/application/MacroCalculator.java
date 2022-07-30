@@ -7,28 +7,37 @@ public class MacroCalculator {
 	double updateDailyCalories (Meal mealToCalculate) {
 		//Iterate through each food item in meal ArrayList and add values to a tracker
 		double caloriesCalculated = 0.0;
-		for(Food track: mealToCalculate.getFoodInMeal()) {
+		Meal Copy = new Meal (mealToCalculate);
+		
+		for(Food track: Copy.getFoodInMeal()) {
 			caloriesCalculated += track.getCaloriesPerServing();
 		} return caloriesCalculated;
 	}
 	double updateDailyProtein (Meal mealToCalculate) {
 		double proteinCalculated = 0.0;
-		for(Food track: mealToCalculate.getFoodInMeal()) {
+		Meal Copy = new Meal (mealToCalculate);
+		
+		for(Food track: Copy.getFoodInMeal()) {
 			proteinCalculated += track.getProtein();
 		} return proteinCalculated;
 	}
 	double updateDailyFats (Meal mealToCalculate) {
 		double fatsCalculated = 0.0;
-		for(Food track: mealToCalculate.getFoodInMeal()) {
+		Meal Copy = new Meal (mealToCalculate);
+		
+		for(Food track: Copy.getFoodInMeal()) {
 			fatsCalculated += track.getFat();
 		} return fatsCalculated;
 	}
 	double updateDailyCarbs (Meal mealToCalculate) {
 		double carbsCalculated = 0.0;
-		for(Food track: mealToCalculate.getFoodInMeal()) {
+		Meal Copy = new Meal (mealToCalculate);
+		for(Food track: Copy.getFoodInMeal()) {
 			carbsCalculated += track.getCarb();
 		} return carbsCalculated;
 	}
+	
+	
 	//Adding method for if user wants to "quick add" calories/macronutrients without selecting a food
 	double addCustomCalories(double caloriesToAdd) {
 		if(caloriesToAdd > 0) {

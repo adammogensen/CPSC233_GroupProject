@@ -11,26 +11,43 @@ public class User {
 	private int requiredCalories;
 	private double BMI;
 
+	//Constructors
 	
+	public User(){
+		
+	}
+	
+	public User(double inputWeight, double inputHeight, int inputAge, boolean Male){
+		weight = inputWeight;
+		height = inputHeight;
+		age = inputAge;
+		isMale = Male;
+	}
 	
 	//Getters and Setters for instance variables
 	public double getWeight() {
 		return weight;
 	}
 	public void setWeight(double weight) {
-		this.weight = weight;
+		if(weight > 0) {
+			this.weight = weight;
+		}
 	}
 	public double getHeight() {
 		return height;
 	}
 	public void setHeight(double height) {
-		this.height = height;
+		if(height> 0) {
+			this.height = height;
+		}
 	}
 	public int getAge() {
 		return age;
 	}
 	public void setAge(int age) {
-		this.age = age;
+		if (age>0) {
+			this.age = age;
+		}
 	}
 
 	boolean isMale() {
@@ -43,11 +60,13 @@ public class User {
 		return requiredCalories;
 	}
 	public void setDailyCalories(int dailyCalories) {
-		this.requiredCalories = dailyCalories;
+		if (dailyCalories > 0) {
+			this.requiredCalories = dailyCalories;
+		}
 	}
 	
 	
-	//Creating constructors
+	//Methods
 	double getBMI(double height, double weight) {
 		//BMI calculation:
 		return 0;
@@ -58,6 +77,4 @@ public class User {
 	}
 
 }
-
-
 
