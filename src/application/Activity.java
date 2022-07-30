@@ -10,21 +10,27 @@ public class Activity {
 	boolean isLow() {
 		return low;
 	}
-	void setLow(boolean low) {
-		this.low = low;
+	void setLow() {
+		high = false;
+		medium = false;
+		low = true;
 	}
 	boolean isMedium() {
 		return medium;
 	}
-	void setMedium(boolean medium) {
-		this.medium = medium;
+	void setMedium() {
+		high = false;
+		low = false;
+		medium = true;
 	}
 	
 	boolean isHigh() {
 		return high;
 	}
-	void setHigh(boolean high) {
-		this.high = high;
+	void setHigh() {
+		medium = false;
+		low = false;
+		high = true;
 	}
 	
 	int getDuration() {
@@ -35,6 +41,7 @@ public class Activity {
 	}
 
 	int calcCaloriesBurned(int activity, int duration, double BMi) {
+		//formula
 		return 0;
 	}
 
