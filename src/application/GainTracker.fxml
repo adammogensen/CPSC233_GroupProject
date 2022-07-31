@@ -9,7 +9,7 @@
 
 <VBox prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GainerController">
    <children>
-      <Label text="Greet message place holder.">
+      <Label fx:id="greetMsgLabel" text="Greet message place holder.">
          <font>
             <Font size="14.0" />
          </font>

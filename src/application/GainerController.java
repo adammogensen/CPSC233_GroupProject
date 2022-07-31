@@ -83,7 +83,10 @@ public class GainerController {
     
 
     void setGreetingMsg() {
-    	greetMsgLabel.setText("Hello " + gainer.getName() +":/nYour body datas are displayed on the right.");
+    	if(greetMsgLabel==null);
+    	else {
+    	greetMsgLabel.setText("Hello " + gainer.getName() +",\nYour body datas are displayed on the right side:");
+    }
     }
 }
 

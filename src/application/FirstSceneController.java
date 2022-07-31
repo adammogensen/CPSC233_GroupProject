@@ -95,6 +95,7 @@ public class FirstSceneController {
 		GainerController gainController = (GainerController)loader.getController();
 		gainController.applicationStage = applicationStage;//connect gainControllerStage to primary stage.
 		storeUserData(gainController.gainer);
+		gainController.setGreetingMsg();
     	
     	//setting stage and scene
     	if(!isValidInput) 
