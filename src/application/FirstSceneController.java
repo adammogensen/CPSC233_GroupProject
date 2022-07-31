@@ -90,13 +90,13 @@ public class FirstSceneController {
     	   
     	else if(userChoice.equals("Gain weight!")) {
     		
-    		//connecting first stage with the second stage, so we could do further scene-changing.
+    	//connecting first stage with the second stage, so we could do further scene-changing.
     	VBox root = loader.load(new FileInputStream("src/application/GainTracker.fxml"));
 		GainerController gainController = (GainerController)loader.getController();
 		gainController.applicationStage = applicationStage;//connect gainControllerStage to primary stage.
 		storeUserData(gainController.gainer);
     	
-    	//setting stage
+    	//setting stage and scene
     	if(!isValidInput) 
     	return;
     	else{
@@ -111,15 +111,12 @@ public class FirstSceneController {
         	VBox root = loader.load(new FileInputStream("src/application/LoseTracker.fxml"));
     		LoseController loseController = (LoseController)loader.getController();
     		loseController.applicationStage = applicationStage;
-    		
-    		
     		storeUserData(loseController.loser);
     		
-        	//setting scene
-        	Scene loseScene = new Scene(root,800,800);
         	
-        	//setting stage
-        	if(isValidInput) {
+        	//setting stage and scene
+        	if(isValidInput) {        	
+        	Scene loseScene = new Scene(root,800,800);
         	applicationStage.setTitle("Lose weight calories tracker");
         	applicationStage.setScene(loseScene);
     	}

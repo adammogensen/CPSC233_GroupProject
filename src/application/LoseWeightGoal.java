@@ -1,7 +1,6 @@
 package application;
 
 public class LoseWeightGoal extends User{
-	
 	private Meal recommendedLossFoods;
 	
 	
