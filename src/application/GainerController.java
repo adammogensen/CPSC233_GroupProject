@@ -12,8 +12,13 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class GainerController {
-
+	
+	GainWeightGoal gainer = new GainWeightGoal();
 	Stage applicationStage;
+	
+	
+	@FXML
+	private Label greetMsgLabel;
 
     @FXML
     private Button addActivityButton;
@@ -34,7 +39,7 @@ public class GainerController {
     private Label gainerProteinLabel;//set protein value to this label
     
     private Label mealEnterErrorLabel;
-
+    
     @FXML
     void gainerAddMeal(ActionEvent addMealEvent) {
     	Scene mainScene = applicationStage.getScene();//mainScene, which is the gainerScene.
@@ -72,8 +77,13 @@ public class GainerController {
 
     @FXML
     void gainerAddActivity(ActionEvent event) {
+    	gainerCalLabel.setText(String.valueOf(gainer.getAge()));//checking if data get parsed.
 
     }
+    
 
+    void setGreetingMsg() {
+    	greetMsgLabel.setText("Hello " + gainer.getName() +":/nYour body datas are displayed on the right.");
+    }
 }
 

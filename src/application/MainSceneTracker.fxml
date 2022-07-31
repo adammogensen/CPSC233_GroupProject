@@ -39,7 +39,7 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin>
             </TextField>
-            <Label fx:id="nameError" text=" " textFill="RED">
+            <Label fx:id="nameError" textFill="RED">
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin>
@@ -60,7 +60,7 @@
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin></TextField>
-            <Label fx:id="ageError" text=" " textFill="#ee0707">
+            <Label fx:id="ageError" textFill="#ee0707">
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin>
@@ -77,7 +77,7 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin>
             </Label>
-            <ChoiceBox prefWidth="150.0">
+            <ChoiceBox fx:id="userSexChoiceBox" prefWidth="150.0">
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin>
@@ -89,7 +89,7 @@
              </FXCollections>
             </items>
             </ChoiceBox>
-            <Label fx:id="sexError" text=" " textFill="#f80101">
+            <Label fx:id="sexError" textFill="#f80101">
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin>
@@ -110,7 +110,7 @@
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin></TextField>
-            <Label fx:id="weightError" text=" " textFill="#eb0404">
+            <Label fx:id="weightError" textFill="#eb0404">
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin>
@@ -131,7 +131,7 @@
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin></TextField>
-            <Label fx:id="heightError" text=" " textFill="#f80202">
+            <Label fx:id="heightError" textFill="#f80202">
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin>
@@ -168,7 +168,7 @@
              </FXCollections>
             </items>
             </ChoiceBox>
-            <Button fx:id="firstSceneDone" mnemonicParsing="false" onAction="#FirstSceneDoneButton" text="Done">
+            <Button fx:id="firstSceneDone" mnemonicParsing="false" onAction="#firstSceneDoneButton" text="Done">
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin>

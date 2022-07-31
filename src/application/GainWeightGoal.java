@@ -1,7 +1,9 @@
 package application;
 
-public class GainWeightGoal {
+public class GainWeightGoal extends User {
 	private Meal recommendedGainerFoods;
+	
+
 
 	int calculateDailyCalories(double BMI, int age, int activityLevel) {
 		//formula for calc + weightGain differential
