@@ -4,6 +4,7 @@ public class User {
 
 	
 	//Creating instance variables
+	private String name;
 	private double weight;
 	private double height;
 	private int age;
@@ -17,7 +18,8 @@ public class User {
 		
 	}
 	
-	public User(double inputWeight, double inputHeight, int inputAge, boolean Male){
+	public User(String name,double inputWeight, double inputHeight, int inputAge, boolean Male){
+		this.setName(name);
 		weight = inputWeight;
 		height = inputHeight;
 		age = inputAge;
@@ -74,6 +76,14 @@ public class User {
 	
 	int calculateDailyCalories(double BMI, int age, int activityLevel) {
 		return 0;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }
