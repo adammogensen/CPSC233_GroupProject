@@ -69,9 +69,19 @@ public class User {
 	
 	
 	//Methods
-	double getBMI(double height, double weight) {
+	String getBMI(double height, double weight){
+		String bMI = "";
 		//BMI calculation:
-		return 0;
+		this.height = height/100;
+		double BMI = weight / (height * height);
+
+			if (BMI < 18.5)
+					bMI = "underweight";
+				else if(BMI < 25)
+					bMI = "normal weight";
+				else if(BMI >= 25)
+					bMI = "Obese";
+			return bMI;
 	}
 	
 	int calculateDailyCalories(double BMI, int age, int activityLevel) {
