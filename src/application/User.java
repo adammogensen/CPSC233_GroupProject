@@ -67,6 +67,7 @@ public class User {
 	
 	
 	//Methods
+	
 	double getBMI(double height, double weight) {
 		//BMI calculation:
 		return 0;

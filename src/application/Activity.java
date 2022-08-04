@@ -40,7 +40,7 @@ public class Activity {
 		this.duration = duration;
 	}
 
-	int calcCaloriesBurned(int activity, int duration, double BMi) {
+	int calcCaloriesBurned(int activity, int duration, double BMI) {
 		//formula
 		return 0;
 	}
