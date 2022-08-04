@@ -10,7 +10,8 @@ public class User {
 	private int age;
 	private boolean isMale;
 	private int requiredCalories;
-	private double BMI;
+	private String bMI;
+	private double bMR;
 
 	//Constructors
 	
@@ -70,22 +71,26 @@ public class User {
 	
 	//Methods
 	String getBMI(double height, double weight){
-		String bMI = "";
+		bMI = "";
 		//BMI calculation:
 		this.height = height/100;
-		double BMI = weight / (height * height);
+		double bMICalc = weight / (height * height);
 
-			if (BMI < 18.5)
+			if (bMICalc < 18.5)
 					bMI = "underweight";
-				else if(BMI < 25)
+				else if(bMICalc < 25)
 					bMI = "normal weight";
-				else if(BMI >= 25)
+				else if(bMICalc >= 25)
 					bMI = "Obese";
 			return bMI;
 	}
 	
-	int calculateDailyCalories(double BMI, int age, int activityLevel) {
-		return 0;
+	double calculateDailyCalories(double bMR, int age, double height, double weight) {
+		if (isMale)
+			bMR = 66 + (13.7 * weight) + (5 * height)-(6.8 * age);
+		else
+			bMR = 655 + (9.6*weight)+(1.8*height)-(4.7 * age);
+		return bMR;
 	}
 
 	public String getName() {
