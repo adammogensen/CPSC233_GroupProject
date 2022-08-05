@@ -12,7 +12,7 @@
 
 <VBox prefHeight="1000.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FirstSceneController">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="0.0" prefWidth="1000.0" text="Welcome to the Calories Tracker App">
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="0.0" prefWidth="1000.0" text="Welcome to the Meal Generator App">
          <font>
             <Font size="14.0" />
          </font></Label>
@@ -146,42 +146,15 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <HBox prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Label prefHeight="20.0" prefWidth="98.0" text="Your choice: ">
-               <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </HBox.margin>
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <ChoiceBox fx:id="goalChoiceBox" prefHeight="23.0" prefWidth="97.0">
-               <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </HBox.margin>
-                <items>
-             <FXCollections fx:factory="observableArrayList">
-                   <String fx:value="Gain weight!" />
-                   <String fx:value="Lose weight!" />
-                   <String fx:value="" />
-             </FXCollections>
-            </items>
-            </ChoiceBox>
-            <Button fx:id="firstSceneDone" mnemonicParsing="false" onAction="#firstSceneDoneButton" text="Done">
-               <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </HBox.margin>
-            </Button>
-            <Label fx:id="chooseNothingErrorLabel" text=" " textFill="#f50000">
-               <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </HBox.margin>
-            </Label>
-         </children>
+      <Button fx:id="firstSceneDone" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#firstSceneDoneButton" text="Done">
          <VBox.margin>
-            <Insets top="20.0" />
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </VBox.margin>
-      </HBox>
+      </Button>
+      <Label fx:id="fileMissingErrorLabel" alignment="CENTER" contentDisplay="CENTER" text=" " textFill="#f50000">
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </VBox.margin>
+      </Label>
    </children>
 </VBox>

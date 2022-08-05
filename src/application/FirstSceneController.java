@@ -18,6 +18,8 @@ public class FirstSceneController {
 	Stage applicationStage;
 	String errorMessage;
 	boolean isValidInput = true;
+	boolean isEmpty = true;
+	boolean fileFoundFlag = false;
 
 	
 	
@@ -35,9 +37,6 @@ public class FirstSceneController {
 
     @FXML
     private TextField userSexTextField;
-
-    @FXML
-    private ChoiceBox<String> goalChoiceBox;
     
     @FXML
     private ChoiceBox<String> userSexChoiceBox;
@@ -46,7 +45,7 @@ public class FirstSceneController {
     private Button firstSceneDone;
     
     @FXML
-    private Label chooseNothingErrorLabel;
+    private Label fileMissingErrorLabel;
     
     @FXML
     private Label nameError;
@@ -73,7 +72,6 @@ public class FirstSceneController {
      */
     void firstSceneDoneButton(ActionEvent chooseActiveEvent) {
     	//user choice stored in this string for picking the right scene.
-    	String userChoice = goalChoiceBox.getValue();    	
     	//setting a loader for all 3 choices.
     	FXMLLoader loader = new FXMLLoader();
     	
@@ -82,60 +80,39 @@ public class FirstSceneController {
         //SecondScene secondAppliStage = new Stage();
     	//secondAppliStage = applicationStage;
     	
-    	//try..catch method for possible error and 
+    	//try..catch method for possible error 
     	try {
-    	   if(userChoice==null) {
-    			chooseNothingErrorLabel.setText("You've picked nothing, please try again.");
-        	}
     	   
-    	else if(userChoice.equals("Gain weight!")) {
-    		
-    	//connecting first stage with the second stage, so we could do further scene-changing.
-    	VBox root = loader.load(new FileInputStream("src/application/GainTracker.fxml"));
-		GainerController gainController = (GainerController)loader.getController();
-		gainController.applicationStage = applicationStage;//connect gainControllerStage to primary stage.
-		storeUserData(gainController.gainer);
-		gainController.setGreetingMsg();
+    	VBox root = loader.load(new FileInputStream("src/application/MealGeneratorTracker.fxml"));
+		MealGeneratorController mealGenController = (MealGeneratorController)loader.getController();
+		mealGenController.applicationStage = applicationStage;//connect gainControllerStage to primary stage.
+		storeUserData(mealGenController.gainer);
+		mealGenController.setGreetingMsg();
     	
     	//setting stage and scene
-    	if(!isValidInput) 
-    	return;
+    	if(isEmpty) {
+    		fileMissingErrorLabel.setText("You need to enter all required datas!");
+    	    return;
+    	}
+    	else if(!isValidInput)
+    		return;
     	else{
-        Scene gainScene = new Scene(root,800,800);
-    	applicationStage.setTitle("Gain weight calories tracker");
-    	applicationStage.setScene(gainScene);
+        Scene MealGenScene = new Scene(root,800,800);
+    	applicationStage.setTitle("Meal Generator");
+    	applicationStage.setScene(MealGenScene);
     	}
 
-    	}
     	
-    	else if(userChoice.equals("Lose weight!")) {
-        	VBox root = loader.load(new FileInputStream("src/application/LoseTracker.fxml"));
-    		LoseController loseController = (LoseController)loader.getController();
-    		loseController.applicationStage = applicationStage;
-    		storeUserData(loseController.loser);
-    		
-        	
-        	//setting stage and scene
-        	if(isValidInput) {        	
-        	Scene loseScene = new Scene(root,800,800);
-        	applicationStage.setTitle("Lose weight calories tracker");
-        	applicationStage.setScene(loseScene);
     	}
-    	}
-
-		else if(userChoice.equals("")) {
-			chooseNothingErrorLabel.setText("You've picked nothing, please try again.");
-		}
-    	} catch(IOException e) {
-    		chooseNothingErrorLabel.setText("Your fxml file is missing, please make sure they are under src/application .");
-    	}
-    	
+    	catch(IOException e) {
+        	fileMissingErrorLabel.setText("Your fxml file is missing, please make sure they are under src/application .");    	
+        	}
     }
     
     void storeUserData(User u) {
     	
     	isValidInput = true;
-
+    	isEmpty = true;
 
 
     	//name
@@ -145,6 +122,7 @@ public class FirstSceneController {
     	}
     	else {
         	nameError.setText("");
+        	isEmpty = false;
     		u.setName(userNameTextField.getText());
     	}
     	
@@ -153,8 +131,13 @@ public class FirstSceneController {
     		ageError.setText(getError());
     		isValidInput = false;
     	}
+    	else if(userAgeTextField.getText()==null) {
+    		ageError.setText(getError());
+        	isValidInput = false;
+    	}
     	else {
     		ageError.setText("");
+    		isEmpty = false;
         	u.setAge(Integer.parseInt(userAgeTextField.getText()));
     	}
     	
@@ -169,11 +152,13 @@ public class FirstSceneController {
     	}
     	else if(userSexChoiceBox.getValue().equals("Male")) {
     		sexError.setText("");
+    		isEmpty = false;
     		u.setMale(true);
     		
     	}
     	else {
     		sexError.setText("");
+    		isEmpty = false;
     		u.setMale(false);
     	}
     	
@@ -183,8 +168,12 @@ public class FirstSceneController {
     		weightError.setText(getError());
         	isValidInput = false;
     	}
+    	else if(userWeightTextField.getText()==null) {
+    		isValidInput = false;
+    	}
     	else {
     		weightError.setText("");
+    		isEmpty = false;
         	u.setWeight(Double.parseDouble(userWeightTextField.getText()));
     	}
     	
@@ -193,8 +182,12 @@ public class FirstSceneController {
     		heightError.setText(getError());
         	isValidInput = false;
     	}
+    	else if(userHeightTextField.getText()==null) {
+    		isValidInput = false;
+    	}
     	else {
     		heightError.setText("");
+    		isEmpty = false;
         	u.setHeight(Double.parseDouble(userHeightTextField.getText()));
     	}
     	

@@ -24,7 +24,7 @@ public class Main extends Application {
 			
 			Scene scene = new Scene(root,700,700);
 			primaryStage.setScene(scene);
-			primaryStage.setTitle("Calories Tracker");
+			primaryStage.setTitle("Meal Generator");
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();

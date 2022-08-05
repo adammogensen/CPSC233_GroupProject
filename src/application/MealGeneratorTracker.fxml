@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MealGeneratorController">
+   <children>
+      <Label fx:id="greetMsgLabel" text="Greet message place holder.">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </VBox.margin>
+      </Label>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label alignment="CENTER" text="Calories: ">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="gainerCalLabel" text="PlaceHolder">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="2.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label text="Protein: ">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="gainerProteinLabel" text="PlaceHolder">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="2.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="15.0" prefWidth="102.0" text="CarbonHydrates: ">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="gainerCarbHLabel" text="PlaceHolder">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="2.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label alignment="CENTER" text="Fats">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="gainerFatsLabel" text="PlaceHolder">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="2.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="addMealButton" mnemonicParsing="false" onAction="#gainerAddMeal" text="Add meal">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="100.0" top="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="addActivityButton" mnemonicParsing="false" onAction="#gainerAddActivity" text="Add activities">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="100.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>
