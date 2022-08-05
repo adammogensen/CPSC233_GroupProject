@@ -11,9 +11,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-public class GainerController {
+public class MealGeneratorController {
 	
-	GainWeightGoal gainer = new GainWeightGoal();
+	User gainer = new User();
 	Stage applicationStage;
 	
 	
