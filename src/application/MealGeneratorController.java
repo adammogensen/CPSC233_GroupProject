@@ -19,23 +19,31 @@ public class MealGeneratorController {
 	
 	@FXML
 	private Label greetMsgLabel;
-
-    @FXML
-    private Label gainerCarbHLabel;//set carbonHydrate value to this label
-
-    @FXML
-    private Label gainerFatsLabel;//set fat value to this label
-
-    @FXML
-    private Label dailyCalLabel;//set calories value to this label
-
-    @FXML
-    private Label gainerProteinLabel;//set protein value to this label
     
+    @FXML
+    private Label heightLabel;
+
+    @FXML
+    private Label sexLabel;
+
+    @FXML
+    private Label bMRLabel;
+    
+    @FXML
+    private Label weightLabel;
+
+    @FXML
+    private Label bMILabel;
+    
+    @FXML
+    private Label ageLabel;
+    
+    @FXML
+    private Label nameLabel;
+  
     private Label mealEnterErrorLabel;
     
-    @FXML
-    private Button addActivityButton;
+
 
     @FXML
     private Button generateBFButton;
@@ -46,12 +54,44 @@ public class MealGeneratorController {
     @FXML
     private Button generateLunchButton;
     
+    @FXML
+    private Button regenLunchButton;
+    
+    @FXML
+    private Button generateDinnerButton;
+
+    @FXML
+    private Button regenDinnerButton;
+    
+    @FXML
+    private Button addSnackButton;
+
+    
 
     @FXML
     private TextField bFCalTextField;
     
+    @FXML
+    private TextField lunchCalTextField;
+    
+    @FXML
+    private TextField snackCalTextField;
+
+    @FXML
+    private TextField dinnerCalTextField;
+
     
 
+
+
+
+
+
+
+
+
+
+    //ignore the methods, feel free to replace it with right methods.
     
     @FXML
     void userGenerateBF(ActionEvent addMealEvent) {
@@ -88,21 +128,38 @@ public class MealGeneratorController {
 
     }
     
+    
     @FXML
-    void userReGenerateBF(ActionEvent event) {
+    void userRegenBF(ActionEvent event) {
 
     }
 
     @FXML
     void userGenerateLunch(ActionEvent event) {
+    	
+    }
+    
+    @FXML
+    void userRegenLunch(ActionEvent regenLunch) {
+    	
+    }
+    
+    @FXML
+    void userGenerateDinner(ActionEvent event) {
 
     }
 
     @FXML
-    void gainerAddActivity(ActionEvent event) {
-    	dailyCalLabel.setText(String.valueOf(gainer.getAge()));//checking if data get parsed.
+    void userRegenDinner(ActionEvent event) {
 
     }
+
+
+    @FXML
+    void userAddSnack(ActionEvent event) {
+
+    }
+
     
 
     void setGreetingMsg() {
