@@ -13,7 +13,7 @@ import javafx.scene.layout.VBox;
 
 public class GainerController {
 	
-	User gainer = new User();
+	GainWeightGoal gainer = new GainWeightGoal();
 	Stage applicationStage;
 	
 	
