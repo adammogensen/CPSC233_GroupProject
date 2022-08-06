@@ -1,5 +1,7 @@
 package application;
 
+import java.util.ArrayList;
+
 public class Grain extends Food implements FoodRegulation{
 	private static int dailyGrain = 0;
 	private static final int  maxTargetPerMeal = 3;
@@ -24,6 +26,19 @@ public class Grain extends Food implements FoodRegulation{
 		else{
 			return false;
 		}
+	}
+	{
+		ArrayList<Food> grainList = new ArrayList <Food> ();
+		Grain bread = new Grain("Slice of Bread",66);
+		grainList.add(bread);
+		Grain pasta = new Grain("Pasta",131);
+		grainList.add(pasta);
+		Grain rice = new Grain("Steamed Rice",151);
+		grainList.add(rice);
+		Grain oatmeal = new Grain("Oatmeal",120);
+		grainList.add(oatmeal);
+		Grain tortilla = new Grain("Flour Tortilla",147);
+		grainList.add(tortilla);
 	}
 }
 
