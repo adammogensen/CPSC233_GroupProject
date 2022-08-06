@@ -91,7 +91,7 @@ public class FirstSceneController {
     	
     	//setting stage and scene
     	if(isEmpty) {
-    		fileMissingErrorLabel.setText("You need to enter all required datas!");
+    		fileMissingErrorLabel.setText("You need to enter all required data!");
     	    return;
     	}
     	else if(!isValidInput)

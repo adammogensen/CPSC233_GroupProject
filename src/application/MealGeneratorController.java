@@ -21,19 +21,13 @@ public class MealGeneratorController {
 	private Label greetMsgLabel;
 
     @FXML
-    private Button addActivityButton;
-
-    @FXML
-    private Button addMealButton;
-
-    @FXML
     private Label gainerCarbHLabel;//set carbonHydrate value to this label
 
     @FXML
     private Label gainerFatsLabel;//set fat value to this label
 
     @FXML
-    private Label gainerCalLabel;//set calories value to this label
+    private Label dailyCalLabel;//set calories value to this label
 
     @FXML
     private Label gainerProteinLabel;//set protein value to this label
@@ -41,7 +35,26 @@ public class MealGeneratorController {
     private Label mealEnterErrorLabel;
     
     @FXML
-    void gainerAddMeal(ActionEvent addMealEvent) {
+    private Button addActivityButton;
+
+    @FXML
+    private Button generateBFButton;
+    
+    @FXML
+    private Button reGenerateBFButton;
+    
+    @FXML
+    private Button generateLunchButton;
+    
+
+    @FXML
+    private TextField bFCalTextField;
+    
+    
+
+    
+    @FXML
+    void userGenerateBF(ActionEvent addMealEvent) {
     	Scene mainScene = applicationStage.getScene();//mainScene, which is the gainerScene.
     	Scene addMealScene;
     	VBox mealFoodHolder = new VBox(10);
@@ -74,10 +87,20 @@ public class MealGeneratorController {
     	applicationStage.setScene(addMealScene);
 
     }
+    
+    @FXML
+    void userReGenerateBF(ActionEvent event) {
+
+    }
+
+    @FXML
+    void userGenerateLunch(ActionEvent event) {
+
+    }
 
     @FXML
     void gainerAddActivity(ActionEvent event) {
-    	gainerCalLabel.setText(String.valueOf(gainer.getAge()));//checking if data get parsed.
+    	dailyCalLabel.setText(String.valueOf(gainer.getAge()));//checking if data get parsed.
 
     }
     
@@ -85,7 +108,11 @@ public class MealGeneratorController {
     void setGreetingMsg() {
     	if(greetMsgLabel==null);
     	else {
-    	greetMsgLabel.setText("Hello " + gainer.getName() +",\nYour body datas are displayed on the right side:");
+    	greetMsgLabel.setText("Hello " + gainer.getName() +",\nYour body data are displayed on the right:\nYou can generate"
+    			+ " 3 different meals by stating designated\ncalories per meal then pressing the generate breakfast\n"
+    			+ "/lunch/supper below. Also you could always re-generate a meal\n if you are discontented with given meal."
+    			+ "\nSame with adding snack, by entering snacks calories,\nit would be stored on total calories consumed on the right.\n"
+    			+ "Please enter calories with respect to your goal\n(gaining weight or losing weight)and enjoy the app!");
     }
     }
 }
