@@ -40,6 +40,26 @@ public class MealGeneratorController {
     
     @FXML
     private Label nameLabel;
+    
+    @FXML
+    private Label dailyCalLabel;
+   
+    @FXML
+    private Label bfMealLabel;
+    
+    @FXML
+    private Label lunchMealLabel;
+    
+    @FXML
+    private Label dinnerMealLabel;
+    
+    @FXML
+    private Label mealTotalCalLabel;
+    
+
+   
+
+
   
     private Label mealEnterErrorLabel;
     
