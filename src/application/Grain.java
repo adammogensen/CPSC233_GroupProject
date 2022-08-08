@@ -2,7 +2,7 @@ package application;
 
 import java.util.ArrayList;
 
-public class Grain extends Food implements FoodRegulation{
+public class Grain extends Food implements FoodRegulation,FoodFunctions{
 	private static int dailyGrain = 0;
 	private static final int  maxTargetPerMeal = 3;
 	private ArrayList<Food>grainList;

@@ -2,7 +2,7 @@ package application;
 
 import java.util.ArrayList;
 
-public class Protein extends Food implements FoodRegulation{
+public class Protein extends Food implements FoodRegulation,FoodFunctions{
 	private static int dailyProtein = 0;
 	private static final int  maxTargetPerMeal = 2;
 	private ArrayList<Food>proteinList;
