@@ -74,7 +74,7 @@ public class User {
 		bMI = "";
 		//BMI calculation:
 		this.height = height/100;
-		double bMICalc = weight / (height * height);
+		double bMICalc = weight / (this.height * this.height);
 
 			if (bMICalc < 18.5)
 					bMI = "underweight";
@@ -85,11 +85,15 @@ public class User {
 			return bMI;
 	}
 	
-	double calculateDailyCalories(double bMR, int age, double height, double weight) {
-		if (isMale)
-			bMR = 66 + (13.7 * weight) + (5 * height)-(6.8 * age);
-		else
-			bMR = 655 + (9.6*weight)+(1.8*height)-(4.7 * age);
+	double calculateDailyCalories(int age, double height, double weight) {
+		if (isMale) {
+			double bMRHolder = 66 + (13.7 * weight) + (5 * height)-(6.8 * age);
+		    bMR = Double.parseDouble(String.format("%.2f", bMRHolder));
+		}
+		else {
+			double bMRHolder = 655 + (9.6*weight)+(1.8*height)-(4.7 * age);
+		    bMR = Double.parseDouble(String.format("%.2f", bMRHolder));
+		}
 		return bMR;
 	}
 

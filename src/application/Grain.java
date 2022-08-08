@@ -1,7 +1,9 @@
 package application;
 
+
 public class Grain extends Food implements FoodRegulation{
 	private static int grainInMeal = 0;
+
 	
 	//Constructor
 	Grain(String name, int calories){
@@ -24,8 +26,10 @@ public class Grain extends Food implements FoodRegulation{
 			return false;
 		}
 	}
+
 	public void resetGrain() {
 		grainInMeal = 0;
+
 	}
 }
 

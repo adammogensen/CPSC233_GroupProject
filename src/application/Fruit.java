@@ -1,6 +1,5 @@
 package application;
 
-
 public class Fruit extends Food implements FoodRegulation{
 	private static int fruitInMeal = 0;
 	
@@ -23,6 +22,7 @@ public class Fruit extends Food implements FoodRegulation{
 		else{
 			return false;
 		}
+
 	}	
 	public void resetFruit() {
 		fruitInMeal = 0;

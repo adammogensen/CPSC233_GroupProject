@@ -1,5 +1,6 @@
 package application;
 
+
 public interface FoodRegulation {
 
 	static final int  MAXMEALGRAIN = 4;
@@ -8,5 +9,6 @@ public interface FoodRegulation {
 	static final int  MAXMEALPROTEIN = 2;
 	
 	boolean canEat();
+	
 
 }

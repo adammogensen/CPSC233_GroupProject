@@ -23,8 +23,10 @@ public class Protein extends Food implements FoodRegulation{
 			return false;
 		}
 	}
+
 	public void resetProtein() {
 		proteinInMeal = 0;
+
 	}
 }
 

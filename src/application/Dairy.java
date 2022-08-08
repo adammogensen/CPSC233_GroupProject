@@ -1,5 +1,6 @@
 package application;
 
+
 public class Dairy extends Food implements FoodRegulation{
  	private static int dairyInMeal = 0;
 	//Constructor
