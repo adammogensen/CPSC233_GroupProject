@@ -1,11 +1,11 @@
 package application;
 
 public interface FoodRegulation {
-	final static int maxDailyProtein = 5;
-	final static int maxDailyGrain = 12;
-	final static int maxDailyFruit = 8;
-	final static int maxDailyDairy = 6;
-	final static int minTargetFood = 1;
+
+	static final int  MAXMEALGRAIN = 4;
+	static final int  MAXMEALFRUIT = 5;
+	static final int  MAXMEALDAIRY = 4;
+	static final int  MAXMEALPROTEIN = 2;
 	
 	boolean canEat();
 
