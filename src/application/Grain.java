@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Grain extends Food implements FoodRegulation{
 	private static int dailyGrain = 0;
 	private static final int  maxTargetPerMeal = 3;
+	private ArrayList<Food>grainList;
 	
 	//Constructor
 	Grain(String name, int calories){
@@ -27,8 +28,9 @@ public class Grain extends Food implements FoodRegulation{
 			return false;
 		}
 	}
-	{
-		ArrayList<Food> grainList = new ArrayList <Food> ();
+
+	public ArrayList<Food>createList(){
+		grainList = new ArrayList <Food> ();
 		Grain bread = new Grain("Slice of Bread",66);
 		grainList.add(bread);
 		Grain pasta = new Grain("Pasta",131);
@@ -39,6 +41,7 @@ public class Grain extends Food implements FoodRegulation{
 		grainList.add(oatmeal);
 		Grain tortilla = new Grain("Flour Tortilla",147);
 		grainList.add(tortilla);
+		return grainList;
 	}
 }
 

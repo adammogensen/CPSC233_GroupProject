@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Fruit extends Food implements FoodRegulation{
 	private static int dailyFruit = 0;
 	private static final int  maxTargetPerMeal = 4;
+	private ArrayList<Food>fruitList;
 	
 	//Constructor
 	Fruit(String name, int calories){
@@ -26,8 +27,9 @@ public class Fruit extends Food implements FoodRegulation{
 			return false;
 		}
 	}
-	{
-		ArrayList<Food> fruitList = new ArrayList <Food> ();
+	
+	public ArrayList<Food>createList(){
+		fruitList = new ArrayList <Food> ();
 		Fruit banana = new Fruit("Banana",105);
 		fruitList.add(banana);
 		Fruit strawberry = new Fruit("Strawberry",32);
@@ -38,5 +40,6 @@ public class Fruit extends Food implements FoodRegulation{
 		fruitList.add(apple);
 		Fruit watermelon = new Fruit("Watermelon",30);
 		fruitList.add(watermelon);
+		return fruitList;
 	}
 }

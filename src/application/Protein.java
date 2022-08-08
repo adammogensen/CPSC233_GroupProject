@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Protein extends Food implements FoodRegulation{
 	private static int dailyProtein = 0;
 	private static final int  maxTargetPerMeal = 2;
+	private ArrayList<Food>proteinList;
 	
 	//Constructor
 	Protein(String name, int calories){
@@ -27,8 +28,8 @@ public class Protein extends Food implements FoodRegulation{
 		}
 	}
 	
-	{
-		ArrayList<Food> proteinList = new ArrayList <Food> ();
+	public ArrayList<Food>createList(){
+		proteinList = new ArrayList <Food> ();
 		Protein chickenbreast = new Protein("Chicken Breast",284);
 		proteinList.add(chickenbreast);
 		Protein chickenthigh = new Protein("Chicken Thigh",351);
@@ -43,7 +44,7 @@ public class Protein extends Food implements FoodRegulation{
 		proteinList.add(boiledegg);
 		Protein friedeggs = new Protein("Fried Eggs",90);
 		proteinList.add(friedeggs);
-		
+		return proteinList;
 	}
 }
 
