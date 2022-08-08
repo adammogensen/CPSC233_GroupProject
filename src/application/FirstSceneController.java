@@ -88,6 +88,7 @@ public class FirstSceneController {
 		mealGenController.applicationStage = applicationStage;//connect gainControllerStage to primary stage.
 		storeUserData(mealGenController.gainer);
 		mealGenController.setGreetingMsg();
+		mealGenController.setCalLabel();
     	
     	//setting stage and scene
     	if(isEmpty) {
