@@ -13,7 +13,7 @@ import javafx.scene.layout.VBox;
 
 public class MealGeneratorController {
 	
-	User gainer = new User();
+	User appUser = new User();
 	Stage applicationStage;
 	
 	
@@ -185,12 +185,65 @@ public class MealGeneratorController {
     void setGreetingMsg() {
     	if(greetMsgLabel==null);
     	else {
-    	greetMsgLabel.setText("Hello " + gainer.getName() +",\nYour body data are displayed on the right:\nYou can generate"
+    	greetMsgLabel.setText("Hello " + appUser.getName() +",\nYour body data are displayed on the right:\nYou can generate"
     			+ " 3 different meals by stating designated\ncalories per meal then pressing the generate breakfast\n"
     			+ "/lunch/supper below. Also you could always re-generate a meal\n if you are discontented with given meal."
     			+ "\nSame with adding snack, by entering snacks calories,\nit would be stored on total calories consumed on the right.\n"
     			+ "Please enter calories with respect to your goal\n(gaining weight or losing weight)and enjoy the app!");
     }
     }
+    /**
+    * This method is used for setting user-inputed name into Meal generator Scene.
+    */
+   void setName() {
+       nameLabel.setText(appUser.getName());
+   }
+
+   /**
+    * This method is used for setting user-inputed age into Meal generator Scene.
+    */
+   void setAge() {
+       ageLabel.setText(String.valueOf(appUser.getAge()));
+   }
+
+   /**
+    * This method is used for setting user-inputed sex into Meal generator Scene.
+    */
+   void setSex() {
+       if(appUser.isMale()) {;
+       sexLabel.setText("Male");
+       }
+       else
+           sexLabel.setText("Female");
+   }
+
+   /**
+    * This method is used for setting user-inputed height into Meal generator Scene.
+    */
+   void setHeight() {
+       heightLabel.setText(String.valueOf(appUser.getHeight())+" cm");
+   }
+
+   /**
+    * This method is used for setting user-inputed Weight into Meal generator Scene.
+    */
+   void setWeight() {
+       weightLabel.setText(String.valueOf(appUser.getWeight())+" Kg");
+   }
+
+   /**
+    * This method is used for setting daily recommended calories into Meal generator Scene
+    * according to user-inputed body data.
+    */
+   void setDailyRecomCalroies() {
+       dailyCalLabel.setText(String.valueOf(appUser.calculateDailyCalories(appUser.getAge(),appUser.getHeight(), appUser.getWeight())));
+   }
+
+   /**
+    * This method is used for setting BMI indication using user-inputed data.
+    */
+   void setBMI() {
+       bMILabel.setText(appUser.getBMI(appUser.getHeight(), appUser.getWeight()));
+   }
 }
 

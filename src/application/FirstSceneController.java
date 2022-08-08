@@ -86,8 +86,15 @@ public class FirstSceneController {
     	VBox root = loader.load(new FileInputStream("src/application/MealGeneratorTracker.fxml"));
 		MealGeneratorController mealGenController = (MealGeneratorController)loader.getController();
 		mealGenController.applicationStage = applicationStage;//connect gainControllerStage to primary stage.
-		storeUserData(mealGenController.gainer);
+		storeUserData(mealGenController.appUser);
 		mealGenController.setGreetingMsg();
+		mealGenController.setName();
+        mealGenController.setAge();
+        mealGenController.setSex();
+        mealGenController.setHeight();
+        mealGenController.setWeight();
+        mealGenController.setDailyRecomCalroies();
+        mealGenController.setBMI();
     	
     	//setting stage and scene
     	if(isEmpty) {
