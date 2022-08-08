@@ -88,6 +88,9 @@ public class FirstSceneController {
 		mealGenController.applicationStage = applicationStage;//connect gainControllerStage to primary stage.
 		storeUserData(mealGenController.appUser);
 		mealGenController.setGreetingMsg();
+
+		mealGenController.setCalLabel();
+
 		mealGenController.setName();
         mealGenController.setAge();
         mealGenController.setSex();
@@ -95,7 +98,8 @@ public class FirstSceneController {
         mealGenController.setWeight();
         mealGenController.setDailyRecomCalroies();
         mealGenController.setBMI();
-    	
+  	
+
     	//setting stage and scene
     	if(isEmpty) {
     		fileMissingErrorLabel.setText("You need to enter all required data!");

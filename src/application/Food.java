@@ -10,8 +10,8 @@ public class Food implements FoodRegulation{
 	}
 	
 	Food(String name, int calories){
-		nameOfFood = name;
-		caloriesPerServing = calories;
+		this.nameOfFood = name;
+		this.caloriesPerServing  = calories;
 	}
 	
 	Food(Food toCopy){
@@ -22,12 +22,12 @@ public class Food implements FoodRegulation{
 	public String getNameOfFood() {
 		return nameOfFood;
 	}
-	public double getCaloriesPerServing() {
+	public int getCaloriesPerServing() {
 		return caloriesPerServing;
 	}
 	
 	//Will be overridden
 	public boolean canEat() {
-		return false;
+		return true;
 	}
 }

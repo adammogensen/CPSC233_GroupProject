@@ -15,6 +15,9 @@ public class MealGeneratorController {
 	
 	User appUser = new User();
 	Stage applicationStage;
+	int breakfastCals = 0;
+	int lunchCals = 0;
+	int dinnerCals = 0;
 	
 	
 	@FXML
@@ -56,141 +59,238 @@ public class MealGeneratorController {
     @FXML
     private Label mealTotalCalLabel;
     
-
-   
-
-
-  
+    @FXML
     private Label mealEnterErrorLabel;
     
-
-
     @FXML
     private Button generateBFButton;
     
     @FXML
-    private Button reGenerateBFButton;
+    private Button regenBFButton;
     
     @FXML
     private Button generateLunchButton;
     
-    @FXML
+    @FXML 
     private Button regenLunchButton;
     
     @FXML
     private Button generateDinnerButton;
-
+    
     @FXML
     private Button regenDinnerButton;
     
     @FXML
     private Button addSnackButton;
 
-    
-
     @FXML
     private TextField bFCalTextField;
     
     @FXML
     private TextField lunchCalTextField;
-    
-    @FXML
-    private TextField snackCalTextField;
 
     @FXML
     private TextField dinnerCalTextField;
-
-    
-
-
-
-
-
-
-
-
-
-
-    //ignore the methods, feel free to replace it with right methods.
     
     @FXML
-    void userGenerateBF(ActionEvent addMealEvent) {
-    	Scene mainScene = applicationStage.getScene();//mainScene, which is the gainerScene.
-    	Scene addMealScene;
-    	VBox mealFoodHolder = new VBox(10);
-    	HBox mealHolder = new HBox(10);
-    	HBox foodHolder = new HBox(10);
-
-    	//attributes for mealHolder
-    	Label mealName = new Label("Name of Meal:");
-    	TextField mealNameTextField = new TextField();
-    	Button addMeal = new Button("Add meal!");
-    	boolean mealFlag = false;//flag used for when user pressed done. 
-    	
-    	//attributes for foodHolder;
-    	
-    	mealEnterErrorLabel = new Label();
-    	mealEnterErrorLabel.setText("");
-    	
-    	mealHolder.getChildren().addAll(mealName,mealNameTextField,addMeal);
-    	mealHolder.setPadding(new Insets(20));
-    	mealHolder.setPrefHeight(70);
-    	mealFoodHolder.getChildren().addAll(mealHolder,mealEnterErrorLabel);
-    	
-    	//while(!mealFlag) {
-    		
-    	//}
-    	
-    	
-    	addMealScene = new Scene(mealFoodHolder,800,800);
-    	applicationStage.setTitle("Add meal");
-    	applicationStage.setScene(addMealScene);
-
-    }
+    private TextField snackCalTextField;
     
+    @FXML
+    private Label snackEnterLabel;
+    
+    @FXML
+    private VBox bFVBox;
+    
+    @FXML
+    private VBox lunchVBox;
+    
+    @FXML
+    private VBox dinnerVBox;
+
+    @FXML
+    void userGenerateBF(ActionEvent addMealEvent) {
+    	Label mealName = new Label ("Meal 1");
+    	//New Meal object based on calorie goal input
+    	Meal breakfast = new Meal("Meal 1", Integer.parseInt(bFCalTextField.getText()));
+		breakfast.generateMeal();
+		bFVBox.getChildren().add(mealName);
+		
+		//Display food name and calories in an HBox for each food generated in the meal.
+    	for (Food f: breakfast.getFoodInMeal()) {
+    		HBox rows = new HBox();
+    		Label foodName = new Label("Food: " + f.getNameOfFood());
+    		Label foodCals = new Label("\t Calories: " + String.valueOf(f.getCaloriesPerServing()));
+    		rows.getChildren().addAll(foodName, foodCals);	
+    		bFVBox.getChildren().add(rows);
+    		breakfastCals += f.getCaloriesPerServing();
+    	}
+    	Label totalCalsLabel = new Label("Total Meal Calories: " + String.valueOf(breakfastCals));
+    	bFVBox.getChildren().add(totalCalsLabel);
+    	
+    	//Set to false to encourage user to use the regenerate button
+    	generateBFButton.setVisible(false);
+    	//Adding calories from meal to the daily total
+    	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) + breakfastCals));
+    }
     
     @FXML
     void userRegenBF(ActionEvent event) {
+    	//Reset the value/items in the VBox of the previous meal
+    	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) - breakfastCals));
+    	breakfastCals = 0;
+    	bFVBox.getChildren().clear();
+    	
+    	Label mealName = new Label ("Meal 1");
+    	bFVBox.getChildren().add(mealName);
+    	Meal breakfast = new Meal("Meal 1", Integer.parseInt(bFCalTextField.getText()));
+    	breakfast.getFoodInMeal().clear();
+		breakfast.generateMeal();
+    	
+    	for (Food f: breakfast.getFoodInMeal()) {
+    		HBox rows = new HBox();
+    		Label foodName = new Label("Food: " + f.getNameOfFood());
+    		Label foodCals = new Label("\t Calories: " + String.valueOf(f.getCaloriesPerServing()));
+    		rows.getChildren().addAll(foodName, foodCals);	
+    		bFVBox.getChildren().add(rows);
+    		breakfastCals += f.getCaloriesPerServing();
+    	}
+    	
+    	Label totalCalsLabel = new Label("Total Meal Calories: " + String.valueOf(breakfastCals));
+    	bFVBox.getChildren().add(totalCalsLabel);
+    	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) + breakfastCals));
 
     }
+    
 
     @FXML
     void userGenerateLunch(ActionEvent event) {
+    	Label mealName = new Label ("Meal 2");
+    	//New Meal object based on calorie goal input
+    	Meal lunch = new Meal("Meal 2", Integer.parseInt(lunchCalTextField.getText()));
+		lunch.generateMeal();
+		lunchVBox.getChildren().add(mealName);
+		
+		//Display food name and calories in an HBox for each food generated in the meal.
+    	for (Food f: lunch.getFoodInMeal()) {
+    		HBox rows = new HBox();
+    		Label foodName = new Label("Food: " + f.getNameOfFood());
+    		Label foodCals = new Label("\t Calories: " + String.valueOf(f.getCaloriesPerServing()));
+    		rows.getChildren().addAll(foodName, foodCals);	
+    		lunchVBox.getChildren().add(rows);
+    		lunchCals += f.getCaloriesPerServing();
+    	}
+    	Label totalCalsLabel = new Label("Total Meal Calories: " + String.valueOf(lunchCals));
+    	lunchVBox.getChildren().add(totalCalsLabel);
     	
+    	//Set to false to encourage user to use the regenerate button
+    	generateLunchButton.setVisible(false);
+    	//Adding calories from meal to the daily total
+    	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) + lunchCals));
     }
     
     @FXML
     void userRegenLunch(ActionEvent regenLunch) {
+    	//Reset the value/items in the VBox of the previous meal
+    	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) - lunchCals));
+    	lunchCals = 0;
+    	lunchVBox.getChildren().clear();
     	
+    	Label mealName = new Label ("Meal 2");
+    	lunchVBox.getChildren().add(mealName);
+    	Meal lunch = new Meal("Meal 2", Integer.parseInt(lunchCalTextField.getText()));
+    	lunch.getFoodInMeal().clear();
+		lunch.generateMeal();
+    	
+    	for (Food f: lunch.getFoodInMeal()) {
+    		HBox rows = new HBox();
+    		Label foodName = new Label("Food: " + f.getNameOfFood());
+    		Label foodCals = new Label("\t Calories: " + String.valueOf(f.getCaloriesPerServing()));
+    		rows.getChildren().addAll(foodName, foodCals);	
+    		lunchVBox.getChildren().add(rows);
+    		lunchCals += f.getCaloriesPerServing();
+    	}
+    	
+    	Label totalCalsLabel = new Label("Total Meal Calories: " + String.valueOf(lunchCals));
+    	lunchVBox.getChildren().add(totalCalsLabel);
+    	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) + lunchCals));
+
     }
     
     @FXML
     void userGenerateDinner(ActionEvent event) {
-
+    	Label mealName = new Label ("Meal 3");
+    	//New Meal object based on calorie goal input
+    	Meal dinner = new Meal("Meal 3", Integer.parseInt(dinnerCalTextField.getText()));
+		dinner.generateMeal();
+		dinnerVBox.getChildren().add(mealName);
+		
+		//Display food name and calories in an HBox for each food generated in the meal.
+    	for (Food f: dinner.getFoodInMeal()) {
+    		HBox rows = new HBox();
+    		Label foodName = new Label("Food: " + f.getNameOfFood());
+    		Label foodCals = new Label("\t Calories: " + String.valueOf(f.getCaloriesPerServing()));
+    		rows.getChildren().addAll(foodName, foodCals);	
+    		dinnerVBox.getChildren().add(rows);
+    		dinnerCals += f.getCaloriesPerServing();
+    	}
+    	Label totalCalsLabel = new Label("Total Meal Calories: " + String.valueOf(dinnerCals));
+    	dinnerVBox.getChildren().add(totalCalsLabel);
+    	
+    	//Set to false to encourage user to use the regenerate button
+    	generateDinnerButton.setVisible(false);
+    	//Adding calories from meal to the daily total
+    	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) + dinnerCals));
     }
 
     @FXML
     void userRegenDinner(ActionEvent event) {
-
+    	//Reset the value/items in the VBox of the previous meal
+    	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) - dinnerCals));
+    	dinnerCals = 0;
+    	dinnerVBox.getChildren().clear();
+    	
+    	Label mealName = new Label ("Meal 3");
+    	dinnerVBox.getChildren().add(mealName);
+    	Meal dinner = new Meal("Meal 3", Integer.parseInt(dinnerCalTextField.getText()));
+    	dinner.getFoodInMeal().clear();
+		dinner.generateMeal();
+    	
+    	for (Food f: dinner.getFoodInMeal()) {
+    		HBox rows = new HBox();
+    		Label foodName = new Label("Food: " + f.getNameOfFood());
+    		Label foodCals = new Label("\t Calories: " + String.valueOf(f.getCaloriesPerServing()));
+    		rows.getChildren().addAll(foodName, foodCals);	
+    		dinnerVBox.getChildren().add(rows);
+    		dinnerCals += f.getCaloriesPerServing();
+    	}
+    	
+    	Label totalCalsLabel = new Label("Total Meal Calories: " + String.valueOf(dinnerCals));
+    	dinnerVBox.getChildren().add(totalCalsLabel);
+    	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) + dinnerCals));
     }
 
 
     @FXML
     void userAddSnack(ActionEvent event) {
-
+    	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()+ Integer.parseInt(snackCalTextField.getText()))));
+    	snackEnterLabel.setText(snackCalTextField.getText() + " Calories added to your total.");
+    }
+    void setCalLabel() {
+    	mealTotalCalLabel.setText("0");
     }
 
-    
 
     void setGreetingMsg() {
     	if(greetMsgLabel==null);
     	else {
-    	greetMsgLabel.setText("Hello " + appUser.getName() +",\nYour body data are displayed on the right:\nYou can generate"
-    			+ " 3 different meals by stating designated\ncalories per meal then pressing the generate breakfast\n"
-    			+ "/lunch/supper below. Also you could always re-generate a meal\n if you are discontented with given meal."
-    			+ "\nSame with adding snack, by entering snacks calories,\nit would be stored on total calories consumed on the right.\n"
-    			+ "Please enter calories with respect to your goal\n(gaining weight or losing weight)and enjoy the app!");
-    }
+
+        	greetMsgLabel.setText("Hello " + gainer.getName() +",\nYour body data is displayed on the right:\nYou can generate"
+        			+ " 3 different meals by stating designated\ncalories per meal then pressing the generate Breakfast\n"
+        			+ "/Lunch/Supper below. Also you can always re-generate a meal\n if you are unhappy with the generated\n meal."
+        			+ " You can also add a custom snack by \n entering its calories. Total calories consumed are stored\n"
+        			+ "on the right. Please enter calories with respect to your\n goal (Gaining weight or Losing weight) "
+        			+ "and Enjoy the App!");
+    	}
     }
     /**
     * This method is used for setting user-inputed name into Meal generator Scene.

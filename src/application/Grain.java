@@ -1,11 +1,9 @@
 package application;
 
-import java.util.ArrayList;
 
-public class Grain extends Food implements FoodRegulation,FoodFunctions{
-	private static int dailyGrain = 0;
-	private static final int  maxTargetPerMeal = 3;
-	private ArrayList<Food>grainList;
+public class Grain extends Food implements FoodRegulation{
+	private static int grainInMeal = 0;
+
 	
 	//Constructor
 	Grain(String name, int calories){
@@ -14,14 +12,14 @@ public class Grain extends Food implements FoodRegulation,FoodFunctions{
 	
 	//Return max target for control in Meal Generator
 	public static int getMaxTarget() {
-		return maxTargetPerMeal;
+		return MAXMEALGRAIN;
 	}
 
 	//Meal generator will use this to control the number of grain objects put into each meal.
 	@Override
 	public boolean canEat() {
-		if (dailyGrain < maxDailyGrain) {
-			dailyGrain ++;
+		if (grainInMeal < MAXMEALGRAIN) {
+			grainInMeal ++;
 			return true;
 		}
 		else{
@@ -29,19 +27,9 @@ public class Grain extends Food implements FoodRegulation,FoodFunctions{
 		}
 	}
 
-	public ArrayList<Food>createList(){
-		grainList = new ArrayList <Food> ();
-		Grain bread = new Grain("Slice of Bread",66);
-		grainList.add(bread);
-		Grain pasta = new Grain("Pasta",131);
-		grainList.add(pasta);
-		Grain rice = new Grain("Steamed Rice",151);
-		grainList.add(rice);
-		Grain oatmeal = new Grain("Oatmeal",120);
-		grainList.add(oatmeal);
-		Grain tortilla = new Grain("Flour Tortilla",147);
-		grainList.add(tortilla);
-		return grainList;
+	public void resetGrain() {
+		grainInMeal = 0;
+
 	}
 }
 

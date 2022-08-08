@@ -1,12 +1,8 @@
 package application;
 
-import java.util.ArrayList;
 
-public class Dairy extends Food implements FoodRegulation,FoodFunctions{
-	private static int dailyDairy = 0;
-	private static final int  maxTargetPerMeal = 3;
-	private ArrayList<Food>dairyList;
-	
+public class Dairy extends Food implements FoodRegulation{
+ 	private static int dairyInMeal = 0;
 	//Constructor
 	Dairy(String name, int calories){
 		super(name, calories);
@@ -14,32 +10,21 @@ public class Dairy extends Food implements FoodRegulation,FoodFunctions{
 	
 	//Return max target for control in Meal Generator
 	public static int getMaxTarget() {
-		return maxTargetPerMeal;
+		return MAXMEALDAIRY;
 	}
 
 	@Override
-	public boolean canEat() {
-		if (dailyDairy < maxDailyDairy) {
-			dailyDairy ++;
+	public boolean canEat(){
+		if (dairyInMeal < MAXMEALDAIRY) {
+			dairyInMeal ++;
 			return true;
 		}
 		else{
 			return false;
 		}
 	}
-
-	public ArrayList<Food>createList(){
-		dairyList = new ArrayList <Food> ();
-		Dairy milk = new Dairy("Milk",103);
-		dairyList.add(milk);
-		Dairy butter = new Dairy("Butter",102);
-		dairyList.add(butter);
-		Dairy cheese = new Dairy("Cheese",104);
-		dairyList.add(cheese);
-		Dairy yogurt = new Dairy("Yogurt",61);
-		dairyList.add(yogurt);
-		return dairyList;
-
+	public void resetDairy() {
+		dairyInMeal = 0;
 	}
 }
 

@@ -20,7 +20,7 @@
       </Label>
       <HBox alignment="CENTER_LEFT" prefHeight="145.0" prefWidth="800.0">
          <children>
-            <VBox prefHeight="118.0" prefWidth="261.0">
+            <VBox prefHeight="148.0" prefWidth="230.0">
                <children>
                   <Label prefHeight="20.0" prefWidth="178.0" text="Breakfast Generator" textFill="#0dc0e4">
                      <font>
@@ -30,14 +30,14 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="220.0">
                      <children>
-                        <Label prefHeight="15.0" prefWidth="135.0" text=" Calories for Breakfast:">
+                        <Label prefHeight="17.0" prefWidth="95.0" text="Goal Calories:">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="2.0" top="10.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="bFCalTextField" prefHeight="23.0" prefWidth="75.0">
+                        <TextField fx:id="bFCalTextField" prefHeight="25.0" prefWidth="70.0">
                            <HBox.margin>
                               <Insets bottom="10.0" left="2.0" right="10.0" top="10.0" />
                            </HBox.margin>
@@ -49,22 +49,25 @@
                   </HBox>
                   <HBox prefHeight="44.0" prefWidth="259.0">
                      <children>
-                        <Button fx:id="generateBFButton" mnemonicParsing="false" onAction="#userGenerateBF" text="Generate Breakfast">
+                        <Button fx:id="generateBFButton" mnemonicParsing="false" onAction="#userGenerateBF" text="Generate">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="reGenerateBFButton" mnemonicParsing="false" onAction="#userRegenBF" prefHeight="23.0" prefWidth="85.0" text="Regenerate">
+                        <Button fx:id="regenBFButton" mnemonicParsing="false" onAction="#userRegenBF" text="Regenerate">
                            <HBox.margin>
-                              <Insets top="10.0" />
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
                         </Button>
                      </children>
                   </HBox>
                </children>
             </VBox>
-            <Region prefHeight="145.0" prefWidth="285.0" />
-            <VBox prefHeight="115.0" prefWidth="328.0">
+            <VBox fx:id="bFVBox" prefHeight="118.0" prefWidth="250.0">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="20.0" top="20.0" />
+               </HBox.margin></VBox>
+            <VBox prefHeight="115.0" prefWidth="300.0">
                <children>
                   <HBox prefHeight="40.0" prefWidth="327.0">
                      <children>
@@ -128,7 +131,7 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <VBox prefHeight="140.0" prefWidth="258.0">
+            <VBox prefHeight="148.0" prefWidth="230.0">
                <children>
                   <Label prefHeight="20.0" prefWidth="178.0" text="Lunch Generator" textFill="#0900eb">
                      <font>
@@ -138,14 +141,14 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="219.0">
                      <children>
-                        <Label prefHeight="15.0" prefWidth="114.0" text="Calories for Lunch:">
+                        <Label prefHeight="17.0" prefWidth="95.0" text="Goal Calories:">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="2.0" top="10.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="lunchCalTextField" prefHeight="23.0" prefWidth="106.0">
+                        <TextField fx:id="lunchCalTextField" prefHeight="25.0" prefWidth="70.0">
                            <HBox.margin>
                               <Insets bottom="10.0" left="2.0" right="10.0" top="10.0" />
                            </HBox.margin>
@@ -154,22 +157,26 @@
                   </HBox>
                   <HBox prefHeight="44.0" prefWidth="259.0">
                      <children>
-                        <Button fx:id="generateLunchButton" mnemonicParsing="false" onAction="#userGenerateLunch" text="Generate Lunch">
+                        <Button fx:id="generateLunchButton" mnemonicParsing="false" onAction="#userGenerateLunch" text="Generate">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
                         </Button>
                         <Button fx:id="regenLunchButton" mnemonicParsing="false" onAction="#userRegenLunch" prefHeight="23.0" prefWidth="85.0" text="Regenerate">
                            <HBox.margin>
-                              <Insets top="10.0" />
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
                         </Button>
                      </children>
                   </HBox>
                </children>
             </VBox>
-            <Region prefHeight="140.0" prefWidth="238.0" />
-            <VBox prefHeight="140.0" prefWidth="290.0">
+            <VBox fx:id="lunchVBox" prefHeight="118.0" prefWidth="250.0">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="20.0" top="20.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox prefHeight="140.0" prefWidth="300.0">
                <children>
                   <HBox prefHeight="2.0" prefWidth="290.0">
                      <children>
@@ -187,7 +194,21 @@
                   </HBox>
                   <HBox prefHeight="40.0" prefWidth="327.0">
                      <children>
-                        <Label prefHeight="15.0" prefWidth="172.0" text="Daily Recommanded Calories:">
+                        <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" prefHeight="17.0" prefWidth="160.0" text="Daily Recommended Calories:">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="dailyCalLabel" alignment="TOP_RIGHT" contentDisplay="CENTER" prefHeight="15.0" prefWidth="72.0" text="PlaceHolder">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="2.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="15.0" prefWidth="76.0" text="BMR value:">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
@@ -219,7 +240,7 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="280.0">
+            <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="230.0">
                <children>
                   <Label prefHeight="20.0" prefWidth="178.0" text="Dinner Generator" textFill="#b100ff">
                      <font>
@@ -231,12 +252,12 @@
                   </Label>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label prefHeight="15.0" prefWidth="114.0" text="Calories for Dinner:">
+                        <Label prefHeight="17.0" prefWidth="95.0" text="Goal Calories: ">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="2.0" top="10.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="dinnerCalTextField" prefHeight="23.0" prefWidth="106.0">
+                        <TextField fx:id="dinnerCalTextField" prefHeight="25.0" prefWidth="70.0">
                            <HBox.margin>
                               <Insets bottom="10.0" left="2.0" right="10.0" top="10.0" />
                            </HBox.margin>
@@ -245,24 +266,34 @@
                   </HBox>
                   <HBox prefHeight="44.0" prefWidth="259.0">
                      <children>
-                        <Button fx:id="generateDinnerButton" mnemonicParsing="false" onAction="#userGenerateDinner" text="Generate Dinner">
+                        <Button fx:id="generateDinnerButton" mnemonicParsing="false" onAction="#userGenerateDinner" text="Generate">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
                         </Button>
                         <Button fx:id="regenDinnerButton" mnemonicParsing="false" onAction="#userRegenDinner" prefHeight="23.0" prefWidth="85.0" text="Regenerate">
                            <HBox.margin>
-                              <Insets top="10.0" />
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
                         </Button>
                      </children>
                   </HBox>
                </children>
             </VBox>
+            <VBox fx:id="dinnerVBox" prefHeight="148.0" prefWidth="250.0">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="20.0" top="20.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox fx:id="bFVBox3" prefHeight="148.0" prefWidth="300.0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </VBox>
          </children></HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="280.0">
+            <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="230.0">
                <children>
                   <Label prefHeight="20.0" prefWidth="178.0" text="Add Snack" textFill="#ff00c6">
                      <font>
@@ -272,14 +303,14 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="255.0">
                      <children>
-                        <Label prefHeight="15.0" prefWidth="114.0" text="Calories for Snack:">
+                        <Label prefHeight="17.0" prefWidth="100.0" text="Quick Add Snack:">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="2.0" top="10.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="snackCalTextField" prefHeight="23.0" prefWidth="106.0">
+                        <TextField fx:id="snackCalTextField" prefHeight="25.0" prefWidth="70.0">
                            <HBox.margin>
                               <Insets bottom="10.0" left="2.0" right="10.0" top="10.0" />
                            </HBox.margin>
@@ -288,7 +319,7 @@
                   </HBox>
                   <HBox prefHeight="44.0" prefWidth="259.0">
                      <children>
-                        <Button fx:id="addSnackButton" mnemonicParsing="false" onAction="#userAddSnack" text="Add Snack!">
+                        <Button fx:id="addSnackButton" mnemonicParsing="false" onAction="#userAddSnack" text="Add Snack">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
@@ -297,6 +328,7 @@
                   </HBox>
                </children>
             </VBox>
+            <Label fx:id="snackEnterLabel" prefHeight="17.0" prefWidth="200.0" textFill="#f80000" />
          </children>
       </HBox>
       <HBox prefHeight="124.0" prefWidth="800.0">
@@ -355,7 +387,7 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin>
             </Label>
-            <Label fx:id="mealTotalCalLabel" text="added up placeholder" textFill="RED">
+            <Label fx:id="mealTotalCalLabel" textFill="RED">
                <font>
                   <Font size="15.0" />
                </font>
