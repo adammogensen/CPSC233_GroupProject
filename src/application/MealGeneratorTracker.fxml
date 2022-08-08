@@ -68,12 +68,12 @@
                <children>
                   <HBox prefHeight="40.0" prefWidth="327.0">
                      <children>
-                        <Label alignment="TOP_RIGHT" text="Name:">
+                        <Label text="Name:">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Label fx:id="nameLabel" alignment="TOP_RIGHT" prefHeight="15.0" prefWidth="72.0" text="PlaceHolder">
+                        <Label fx:id="nameLabel" prefHeight="15.0" prefWidth="72.0" text="PlaceHolder">
                            <HBox.margin>
                               <Insets bottom="10.0" left="2.0" right="10.0" top="10.0" />
                            </HBox.margin>
@@ -110,7 +110,7 @@
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER" text="Height:">
+                        <Label text="Height:">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
@@ -171,7 +171,7 @@
             <Region prefHeight="140.0" prefWidth="238.0" />
             <VBox prefHeight="140.0" prefWidth="290.0">
                <children>
-                  <HBox prefHeight="35.0" prefWidth="290.0">
+                  <HBox prefHeight="2.0" prefWidth="290.0">
                      <children>
                         <Label text="Weight:">
                            <HBox.margin>
@@ -187,12 +187,12 @@
                   </HBox>
                   <HBox prefHeight="40.0" prefWidth="327.0">
                      <children>
-                        <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" prefHeight="15.0" prefWidth="172.0" text="Daily Recommanded Calories:">
+                        <Label prefHeight="15.0" prefWidth="172.0" text="Daily Recommanded Calories:">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Label fx:id="dailyCalLabel" alignment="TOP_RIGHT" prefHeight="15.0" prefWidth="72.0" text="PlaceHolder">
+                        <Label fx:id="dailyCalLabel" prefHeight="15.0" prefWidth="72.0" text="PlaceHolder">
                            <HBox.margin>
                               <Insets bottom="10.0" left="2.0" right="10.0" top="10.0" />
                            </HBox.margin>
@@ -201,7 +201,7 @@
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER" text="BMI value:">
+                        <Label text="BMI value:">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
