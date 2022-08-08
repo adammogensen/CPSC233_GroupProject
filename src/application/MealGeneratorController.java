@@ -284,7 +284,7 @@ public class MealGeneratorController {
     	if(greetMsgLabel==null);
     	else {
 
-        	greetMsgLabel.setText("Hello " + gainer.getName() +",\nYour body data is displayed on the right:\nYou can generate"
+        	greetMsgLabel.setText("Hello " + appUser.getName() +",\nYour body data is displayed on the right:\nYou can generate"
         			+ " 3 different meals by stating designated\ncalories per meal then pressing the generate Breakfast\n"
         			+ "/Lunch/Supper below. Also you can always re-generate a meal\n if you are unhappy with the generated\n meal."
         			+ " You can also add a custom snack by \n entering its calories. Total calories consumed are stored\n"

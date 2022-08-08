@@ -67,7 +67,7 @@ public class Meal {
 		Random random = new Random();
 		/*Loop to add food until reach calorie goal
 		goalCal parameter is 30 less so that meals will be closer to calorie goal.*/
-		while (calories < goalCalories - 30 || counter < 3) {
+		while (calories < goalCalories - 30 && counter < 3) {
 			int randomFood = random.nextInt(0, masterList.getFoodList().size() - 1);
 			Food addFood = masterList.getFoodList().get(randomFood);
 			if(addFood.canEat() && !this.getFoodInMeal().contains(addFood)) {
