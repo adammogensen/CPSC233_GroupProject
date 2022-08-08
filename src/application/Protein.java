@@ -1,10 +1,7 @@
 package application;
 
-import java.util.ArrayList;
-
 public class Protein extends Food implements FoodRegulation{
-	private static int dailyProtein = 0;
-	private static final int  maxTargetPerMeal = 2;
+	private static int proteinInMeal = 0;
 	
 	//Constructor
 	Protein(String name, int calories){
@@ -13,37 +10,21 @@ public class Protein extends Food implements FoodRegulation{
 
 	//Return max target for control in Meal Generator
 	public static int getMaxTarget() {
-		return maxTargetPerMeal;
+		return MAXMEALPROTEIN;
 	}
 
 	@Override
 	public boolean canEat() {
-		if (dailyProtein < maxDailyProtein) {
-			dailyProtein ++;
+		if (proteinInMeal < MAXMEALPROTEIN) {
+			proteinInMeal ++;
 			return true;
 		}
 		else{
 			return false;
 		}
 	}
-	
-	{
-		ArrayList<Food> proteinList = new ArrayList <Food> ();
-		Protein chickenbreast = new Protein("Chicken Breast",284);
-		proteinList.add(chickenbreast);
-		Protein chickenthigh = new Protein("Chicken Thigh",351);
-		proteinList.add(chickenthigh);
-		Protein steak = new Protein("Steak",500);
-		proteinList.add(steak);
-		Protein salmon = new Protein("Salmon",255);
-		proteinList.add(salmon);
-		Protein scramblegg = new Protein("Scramble Eggs",91);
-		proteinList.add(scramblegg);
-		Protein boiledegg = new Protein("Boiled Eggs",78);
-		proteinList.add(boiledegg);
-		Protein friedeggs = new Protein("Fried Eggs",90);
-		proteinList.add(friedeggs);
-		
+	public void resetProtein() {
+		proteinInMeal = 0;
 	}
 }
 
