@@ -108,7 +108,7 @@ public class FirstSceneController {
     	else if(!isValidInput)
     		return;
     	else{
-        Scene MealGenScene = new Scene(root,800,1000);
+        Scene MealGenScene = new Scene(root,950,1000);
     	applicationStage.setTitle("Meal Generator");
     	applicationStage.setScene(MealGenScene);
     	}

@@ -130,13 +130,13 @@ public class MealGeneratorController {
     	//Set to false to encourage user to use the regenerate button
     	generateBFButton.setVisible(false);
     	//Adding calories from meal to the daily total
-    	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) + breakfastCals));
+    	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()+ breakfastCals)));
     }
     
     @FXML
     void userRegenBF(ActionEvent event) {
     	//Reset the value/items in the VBox of the previous meal
-    	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) - breakfastCals));
+    	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText())- breakfastCals));
     	breakfastCals = 0;
     	bFVBox.getChildren().clear();
     	
@@ -272,7 +272,8 @@ public class MealGeneratorController {
 
     @FXML
     void userAddSnack(ActionEvent event) {
-    	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()+ Integer.parseInt(snackCalTextField.getText()))));
+    	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText())+ Integer.parseInt(snackCalTextField.getText())));
+    	
     	snackEnterLabel.setText(snackCalTextField.getText() + " Calories added to your total.");
     }
     void setCalLabel() {
