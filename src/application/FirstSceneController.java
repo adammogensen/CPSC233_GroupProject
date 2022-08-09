@@ -88,9 +88,7 @@ public class FirstSceneController {
 		mealGenController.applicationStage = applicationStage;//connect gainControllerStage to primary stage.
 		storeUserData(mealGenController.appUser);
 		mealGenController.setGreetingMsg();
-
 		mealGenController.setCalLabel();
-
 		mealGenController.setName();
         mealGenController.setAge();
         mealGenController.setSex();
@@ -128,7 +126,7 @@ public class FirstSceneController {
 
     	//name
     	if(userNameTextField.getText().equals("")) {
-        	nameError.setText("You need to enter a name.");
+        	nameError.setText(noEntryError());
         	isValidInput = false;
     	}
     	else {
@@ -137,14 +135,14 @@ public class FirstSceneController {
     		u.setName(userNameTextField.getText());
     	}
     	
-    	//age
-    	if(!isInt(userAgeTextField.getText())) {
+    	//age 
+    	if(userAgeTextField.getText().isEmpty()) {
+    		ageError.setText(noEntryError());
+        	isValidInput = false;
+    	}
+    	else if(!isInt(userAgeTextField.getText())) {
     		ageError.setText(getError());
     		isValidInput = false;
-    	}
-    	else if(userAgeTextField.getText()==null) {
-    		ageError.setText(getError());
-        	isValidInput = false;
     	}
     	else {
     		ageError.setText("");
@@ -175,12 +173,14 @@ public class FirstSceneController {
     	
     	
     	//weight
-    	if(!isDouble(userWeightTextField.getText())) {
+    	if(userWeightTextField.getText().isEmpty()) {
+    		weightError.setText(noEntryError());    	
+    		isValidInput = false;
+
+    	}
+    	else if(!isDouble(userWeightTextField.getText())) {
     		weightError.setText(getError());
         	isValidInput = false;
-    	}
-    	else if(userWeightTextField.getText()==null) {
-    		isValidInput = false;
     	}
     	else {
     		weightError.setText("");
@@ -189,12 +189,13 @@ public class FirstSceneController {
     	}
     	
     	//height
-    	if(!isDouble(userHeightTextField.getText())) {
+    	if(userHeightTextField.getText().isEmpty()) {
+    		heightError.setText(noEntryError());
+    		isValidInput = false;
+    	}
+    	else if(!isDouble(userHeightTextField.getText())) {
     		heightError.setText(getError());
         	isValidInput = false;
-    	}
-    	else if(userHeightTextField.getText()==null) {
-    		isValidInput = false;
     	}
     	else {
     		heightError.setText("");
@@ -239,6 +240,11 @@ public class FirstSceneController {
     	
     	
     	return errorMessage;
+    }
+    
+    String noEntryError() {
+    	String error = "Error:Nothing is entered.";
+    	return error;
     }
     	
     }
