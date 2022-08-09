@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 public class MealGeneratorController {
 	
@@ -109,9 +110,9 @@ public class MealGeneratorController {
 
     @FXML
     void userGenerateBF(ActionEvent addMealEvent) {
-    	Label mealName = new Label ("Meal 1");
+    	Label mealName = new Label ("Breakfast");
     	//New Meal object based on calorie goal input
-    	Meal breakfast = new Meal("Meal 1", Integer.parseInt(bFCalTextField.getText()));
+    	Meal breakfast = new Meal("Breakfast", Integer.parseInt(bFCalTextField.getText()));
 		breakfast.generateMeal();
 		bFVBox.getChildren().add(mealName);
 		
@@ -131,18 +132,21 @@ public class MealGeneratorController {
     	generateBFButton.setVisible(false);
     	//Adding calories from meal to the daily total
     	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()+ breakfastCals)));
-    }
+    	}
+    	
+    
     
     @FXML
     void userRegenBF(ActionEvent event) {
+
     	//Reset the value/items in the VBox of the previous meal
     	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText())- breakfastCals));
     	breakfastCals = 0;
     	bFVBox.getChildren().clear();
     	
-    	Label mealName = new Label ("Meal 1");
+    	Label mealName = new Label ("Breakfast");
     	bFVBox.getChildren().add(mealName);
-    	Meal breakfast = new Meal("Meal 1", Integer.parseInt(bFCalTextField.getText()));
+    	Meal breakfast = new Meal("Breakfast", Integer.parseInt(bFCalTextField.getText()));
     	breakfast.getFoodInMeal().clear();
 		breakfast.generateMeal();
     	
@@ -160,6 +164,8 @@ public class MealGeneratorController {
     	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) + breakfastCals));
 
     }
+    
+  
     
 
     @FXML
@@ -272,10 +278,11 @@ public class MealGeneratorController {
 
     @FXML
     void userAddSnack(ActionEvent event) {
-    	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText())+ Integer.parseInt(snackCalTextField.getText())));
-    	
+
+        mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText())+ Integer.parseInt(snackCalTextField.getText())));
     	snackEnterLabel.setText(snackCalTextField.getText() + " Calories added to your total.");
-    }
+
+}
     void setCalLabel() {
     	mealTotalCalLabel.setText("0");
     }
@@ -287,12 +294,13 @@ public class MealGeneratorController {
 
         	greetMsgLabel.setText("Hello " + appUser.getName() +",\nYour body data is displayed on the right:\nYou can generate"
         			+ " 3 different meals by stating designated\ncalories per meal then pressing the generate Breakfast\n"
-        			+ "/Lunch/Supper below. Also you can always re-generate a meal\n if you are unhappy with the generated\n meal."
+        			+ "/Lunch/Dinner below. Also you can always re-generate a meal\n if you are unhappy with the generated\n meal."
         			+ " You can also add a custom snack by \n entering its calories. Total calories consumed are stored\n"
         			+ "on the right. Please enter calories with respect to your\n goal (Gaining weight or Losing weight) "
         			+ "and Enjoy the App!");
     	}
     }
+    
     /**
     * This method is used for setting user-inputed name into Meal generator Scene.
     */
@@ -345,6 +353,21 @@ public class MealGeneratorController {
     */
    void setBMI() {
        bMILabel.setText(appUser.getBMI(appUser.getHeight(), appUser.getWeight()));
+   }
+   
+   String caloryError() {
+	   String error = "Error:Calories must be between 0 and 1000(doesn't include 0).";
+	   return error;
+   }
+   
+   String noEntryError(String mealName) {
+	   String error = "Error: Can't generate " + mealName +" without a calories entry.";
+	   return error;
+   }
+   
+   String entryNotIntError() {
+	  String error =  "Error: Can't generate a Meal with non-integer value.";
+	  return error;
    }
 }
 
