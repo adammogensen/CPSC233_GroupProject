@@ -110,12 +110,27 @@ public class MealGeneratorController {
 
     @FXML
     void userGenerateBF(ActionEvent addMealEvent) {
+        try {
+        if(bFCalTextField.getText().isEmpty()){
+            bFVBox.getChildren().clear();
+            Label error = new Label(noEntryError("breakfast"));
+            error.setTextFill(Color.RED);
+            bFVBox.getChildren().add(error);
+        }
+        else if(Integer.parseInt(bFCalTextField.getText())>1000||Integer.parseInt(bFCalTextField.getText())<=0) {
+            bFVBox.getChildren().clear();
+            Label error = new Label(caloryError());
+            error.setTextFill(Color.RED);
+            bFVBox.getChildren().add(error);
+        }
+        else {
+        bFVBox.getChildren().clear();
     	Label mealName = new Label ("Breakfast");
     	//New Meal object based on calorie goal input
     	Meal breakfast = new Meal("Breakfast", Integer.parseInt(bFCalTextField.getText()));
 		breakfast.generateMeal();
 		bFVBox.getChildren().add(mealName);
-		
+        
 		//Display food name and calories in an HBox for each food generated in the meal.
     	for (Food f: breakfast.getFoodInMeal()) {
     		HBox rows = new HBox();
@@ -131,14 +146,32 @@ public class MealGeneratorController {
     	//Set to false to encourage user to use the regenerate button
     	generateBFButton.setVisible(false);
     	//Adding calories from meal to the daily total
-    	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()+ breakfastCals)));
+    	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText())+ breakfastCals));
     	}
-    	
-    
+       }catch(NumberFormatException e) {
+           bFVBox.getChildren().clear();
+           Label error = new Label(entryNotIntError());
+           error.setTextFill(Color.RED);
+           bFVBox.getChildren().add(error);
+        }
+    }
     
     @FXML
     void userRegenBF(ActionEvent event) {
-
+    	try {
+            if(bFCalTextField.getText().isEmpty()){
+                bFVBox.getChildren().clear();
+                Label error = new Label(noEntryError("breakfast"));
+                error.setTextFill(Color.RED);
+                bFVBox.getChildren().add(error);
+            }
+            else if(Integer.parseInt(bFCalTextField.getText())>1000||Integer.parseInt(bFCalTextField.getText())<=0) {
+                bFVBox.getChildren().clear();
+                Label error = new Label(caloryError());
+                error.setTextFill(Color.RED);
+                bFVBox.getChildren().add(error);
+            }
+            else{
     	//Reset the value/items in the VBox of the previous meal
     	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText())- breakfastCals));
     	breakfastCals = 0;
@@ -164,12 +197,31 @@ public class MealGeneratorController {
     	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) + breakfastCals));
 
     }
-    
-  
-    
+    	}catch(NumberFormatException e) {
+    		bFVBox.getChildren().clear();
+            Label error = new Label(entryNotIntError());
+            error.setTextFill(Color.RED);
+            bFVBox.getChildren().add(error);
+    }
+    }
 
     @FXML
     void userGenerateLunch(ActionEvent event) {
+    	 try {
+    	       if(lunchCalTextField.getText().isEmpty()){
+    	           lunchVBox.getChildren().clear();
+    	           Label error = new Label(noEntryError("lunch"));
+    	           error.setTextFill(Color.RED);
+    	           lunchVBox.getChildren().add(error);
+    	        }
+    	        else if(Integer.parseInt(lunchCalTextField.getText())>1000||Integer.parseInt(lunchCalTextField.getText())<=0) {
+    	            lunchVBox.getChildren().clear();
+    	            Label error = new Label(caloryError());
+    	            error.setTextFill(Color.RED);
+    	            lunchVBox.getChildren().add(error);
+    	        }
+    	        else {
+    	lunchVBox.getChildren().clear();
     	Label mealName = new Label ("Meal 2");
     	//New Meal object based on calorie goal input
     	Meal lunch = new Meal("Meal 2", Integer.parseInt(lunchCalTextField.getText()));
@@ -193,9 +245,30 @@ public class MealGeneratorController {
     	//Adding calories from meal to the daily total
     	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) + lunchCals));
     }
+    	 }catch(NumberFormatException e) {
+    		lunchVBox.getChildren().clear();
+            Label error = new Label(entryNotIntError());
+            error.setTextFill(Color.RED);
+            lunchVBox.getChildren().add(error);
+    	 }
+    }
     
     @FXML
     void userRegenLunch(ActionEvent regenLunch) {
+    	try {
+ 	       if(lunchCalTextField.getText().isEmpty()){
+ 	           lunchVBox.getChildren().clear();
+ 	           Label error = new Label(noEntryError("lunch"));
+ 	           error.setTextFill(Color.RED);
+ 	           lunchVBox.getChildren().add(error);
+ 	        }
+ 	        else if(Integer.parseInt(lunchCalTextField.getText())>1000||Integer.parseInt(lunchCalTextField.getText())<=0) {
+ 	            lunchVBox.getChildren().clear();
+ 	            Label error = new Label(caloryError());
+ 	            error.setTextFill(Color.RED);
+ 	            lunchVBox.getChildren().add(error);
+ 	        }
+ 	        else {
     	//Reset the value/items in the VBox of the previous meal
     	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) - lunchCals));
     	lunchCals = 0;
@@ -221,9 +294,31 @@ public class MealGeneratorController {
     	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) + lunchCals));
 
     }
+    	}catch(NumberFormatException e) {
+    		lunchVBox.getChildren().clear();
+            Label error = new Label(entryNotIntError());
+            error.setTextFill(Color.RED);
+            lunchVBox.getChildren().add(error);
+    	}
+    }
     
     @FXML
     void userGenerateDinner(ActionEvent event) {
+    	try {
+ 	       if(dinnerCalTextField.getText().isEmpty()){
+ 	           dinnerVBox.getChildren().clear();
+ 	           Label error = new Label(noEntryError("dinner"));
+ 	           error.setTextFill(Color.RED);
+ 	           dinnerVBox.getChildren().add(error);
+ 	        }
+ 	        else if(Integer.parseInt(dinnerCalTextField.getText())>1000||Integer.parseInt(dinnerCalTextField.getText())<=0) {
+ 	            dinnerVBox.getChildren().clear();
+ 	            Label error = new Label(caloryError());
+ 	            error.setTextFill(Color.RED);
+ 	            dinnerVBox.getChildren().add(error);
+ 	        }
+ 	        else {
+ 	    dinnerVBox.getChildren().clear();
     	Label mealName = new Label ("Meal 3");
     	//New Meal object based on calorie goal input
     	Meal dinner = new Meal("Meal 3", Integer.parseInt(dinnerCalTextField.getText()));
@@ -247,9 +342,30 @@ public class MealGeneratorController {
     	//Adding calories from meal to the daily total
     	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) + dinnerCals));
     }
+    	}catch(NumberFormatException e) {
+    		dinnerVBox.getChildren().clear();
+            Label error = new Label(entryNotIntError());
+            error.setTextFill(Color.RED);
+            dinnerVBox.getChildren().add(error);
+    }
+    }
 
     @FXML
     void userRegenDinner(ActionEvent event) {
+    	try {
+  	       if(dinnerCalTextField.getText().isEmpty()){
+  	           dinnerVBox.getChildren().clear();
+  	           Label error = new Label(noEntryError("dinner"));
+  	           error.setTextFill(Color.RED);
+  	           dinnerVBox.getChildren().add(error);
+  	        }
+  	        else if(Integer.parseInt(dinnerCalTextField.getText())>1000||Integer.parseInt(dinnerCalTextField.getText())<=0) {
+  	            dinnerVBox.getChildren().clear();
+  	            Label error = new Label(caloryError());
+  	            error.setTextFill(Color.RED);
+  	            dinnerVBox.getChildren().add(error);
+  	        }
+  	        else {
     	//Reset the value/items in the VBox of the previous meal
     	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) - dinnerCals));
     	dinnerCals = 0;
@@ -274,15 +390,37 @@ public class MealGeneratorController {
     	dinnerVBox.getChildren().add(totalCalsLabel);
     	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) + dinnerCals));
     }
+    	}catch(NumberFormatException e) {
+    		dinnerVBox.getChildren().clear();
+            Label error = new Label(entryNotIntError());
+            error.setTextFill(Color.RED);
+            dinnerVBox.getChildren().add(error);
+    	}
+    }
 
 
     @FXML
     void userAddSnack(ActionEvent event) {
+    	try {
+            if(snackCalTextField.getText().isEmpty()){
+                snackEnterLabel.setText(noEntryError("snack"));
+                snackEnterLabel.setTextFill(Color.RED);
+            }
+            else if(Integer.parseInt(snackCalTextField.getText())>1000||Integer.parseInt(snackCalTextField.getText())<=0) {
+            	snackEnterLabel.setText(caloryError());
+                snackEnterLabel.setTextFill(Color.RED);
+            }
+            else {
+                mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText())+ Integer.parseInt(snackCalTextField.getText())));
+            	snackEnterLabel.setText(snackCalTextField.getText() + " Calories added to your total.");
+            }
+    	}
+            catch(NumberFormatException e) {
+                snackEnterLabel.setText(entryNotIntError());
+                snackEnterLabel.setTextFill(Color.RED);
+            }
+    	}
 
-        mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText())+ Integer.parseInt(snackCalTextField.getText())));
-    	snackEnterLabel.setText(snackCalTextField.getText() + " Calories added to your total.");
-
-}
     void setCalLabel() {
     	mealTotalCalLabel.setText("0");
     }
