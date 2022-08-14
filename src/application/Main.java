@@ -30,8 +30,11 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 	}
-	
+
+	 /*
+	  * Main method of this function
+	  */
 	public static void main(String[] args) {
 		launch(args);
 	}
-}
+}//end main
