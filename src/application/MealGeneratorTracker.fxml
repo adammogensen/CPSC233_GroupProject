@@ -309,7 +309,7 @@
                   </HBox>
                </children>
             </VBox>
-            <Label fx:id="snackEnterLabel" prefHeight="17.0" prefWidth="342.0" textFill="#f80000" />
+            <Label fx:id="snackEnterLabel" prefHeight="17.0" prefWidth="432.0" textFill="#f80000" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="124.0" prefWidth="800.0">
