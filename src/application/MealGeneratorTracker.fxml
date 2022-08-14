@@ -63,7 +63,7 @@
                   </HBox>
                </children>
             </VBox>
-            <VBox fx:id="bFVBox" prefHeight="115.0" prefWidth="370.0">
+            <VBox fx:id="bFVBox" prefHeight="115.0" prefWidth="420.0">
                <HBox.margin>
                   <Insets bottom="10.0" left="20.0" top="20.0" />
                </HBox.margin></VBox>
@@ -171,7 +171,7 @@
                   </HBox>
                </children>
             </VBox>
-            <VBox fx:id="lunchVBox" prefHeight="96.0" prefWidth="370.0">
+            <VBox fx:id="lunchVBox" prefHeight="96.0" prefWidth="412.0">
                <HBox.margin>
                   <Insets bottom="10.0" left="20.0" top="20.0" />
                </HBox.margin>
@@ -266,7 +266,7 @@
                   </HBox>
                </children>
             </VBox>
-            <VBox fx:id="dinnerVBox" prefHeight="96.0" prefWidth="358.0">
+            <VBox fx:id="dinnerVBox" prefHeight="96.0" prefWidth="410.0">
                <HBox.margin>
                   <Insets bottom="10.0" left="20.0" top="20.0" />
                </HBox.margin>
