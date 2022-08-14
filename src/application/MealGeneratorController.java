@@ -146,6 +146,7 @@ public class MealGeneratorController {
     	bFVBox.getChildren().add(totalCalsLabel);
     	
     	//Set to false to encourage user to use the regenerate button
+    	regenBFButton.setVisible(true);
     	generateBFButton.setVisible(false);
     	//Adding calories from meal to the daily total
     	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText())+ breakfastCals));
@@ -252,6 +253,7 @@ public class MealGeneratorController {
     	lunchVBox.getChildren().add(totalCalsLabel);
     	
     	//Set to false to encourage user to use the regenerate button
+    	regenLunchButton.setVisible(true);
     	generateLunchButton.setVisible(false);
     	//Adding calories from meal to the daily total
     	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) + lunchCals));
@@ -358,6 +360,7 @@ public class MealGeneratorController {
     	dinnerVBox.getChildren().add(totalCalsLabel);
     	
     	//Set to false to encourage user to use the regenerate button
+    	regenDinnerButton.setVisible(true);
     	generateDinnerButton.setVisible(false);
     	//Adding calories from meal to the daily total
     	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) + dinnerCals));
@@ -523,7 +526,7 @@ public class MealGeneratorController {
    }
    
    String caloryError() {
-	   String error = "Error:Calories must be between 0 and 1000(doesn't include 0).";
+	   String error = "Error: Calories must be between 0 and 1000 (Does not include 0).";
 	   return error;
    }
    
