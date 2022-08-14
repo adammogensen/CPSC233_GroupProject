@@ -3,24 +3,31 @@ package application;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-
+/**
+ * This class is used as a controller of meal generator Scene, it would parse data entered by user from
+ * previous scene and implements them in the right place of the UI, it contains method used for generate/regenerate
+ * different meals also add snack that will interact with user entered data(between 100 and 1000).It would display 
+ * different error message when user made either invalid entry or entered nothing.
+ * 
+ * @author Haoping(Ryan) Zheng, Adam Mogenson, Mun Seok 
+ *
+ */
 public class MealGeneratorController {
 	
+	//setting up instance variables and object used in this class.
 	User appUser = new User();
 	Stage applicationStage;
 	int breakfastCals = 0;
 	int lunchCals = 0;
 	int dinnerCals = 0;
-
 	
+	//setting up interactive parts created in FXML
 	@FXML
 	private Label greetMsgLabel;
     
@@ -109,6 +116,12 @@ public class MealGeneratorController {
     private VBox dinnerVBox;
 
     @FXML
+    /**
+     * This method is used for generate breakfast meal, with respect to user-entered calories.It would 
+     * set error message when user entered invalid entry.
+     * 
+     * @param bFGenEvent event that represents a breakfast-generated event.
+     */
     void userGenerateBF(ActionEvent bFGenEvent) {
         try {
         if(bFCalTextField.getText().isEmpty()){
@@ -117,7 +130,7 @@ public class MealGeneratorController {
             error.setTextFill(Color.RED);
             bFVBox.getChildren().add(error);
         }
-        else if(Integer.parseInt(bFCalTextField.getText())>1000||Integer.parseInt(bFCalTextField.getText())<=0) {
+        else if(Integer.parseInt(bFCalTextField.getText())>1000||Integer.parseInt(bFCalTextField.getText())<=100) {
             bFVBox.getChildren().clear();
             Label error = new Label(caloryError());
             error.setTextFill(Color.RED);
@@ -166,7 +179,7 @@ public class MealGeneratorController {
                 error.setTextFill(Color.RED);
                 bFVBox.getChildren().add(error);
             }
-            else if(Integer.parseInt(bFCalTextField.getText())>1000||Integer.parseInt(bFCalTextField.getText())<=0) {
+            else if(Integer.parseInt(bFCalTextField.getText())>1000||Integer.parseInt(bFCalTextField.getText())<=100) {
                 bFVBox.getChildren().clear();
                 Label error = new Label(caloryError());
                 error.setTextFill(Color.RED);
@@ -217,7 +230,7 @@ public class MealGeneratorController {
     	           error.setTextFill(Color.RED);
     	           lunchVBox.getChildren().add(error);
     	        }
-    	        else if(Integer.parseInt(lunchCalTextField.getText())>1000||Integer.parseInt(lunchCalTextField.getText())<=0) {
+    	        else if(Integer.parseInt(lunchCalTextField.getText())>1000||Integer.parseInt(lunchCalTextField.getText())<=100) {
     	            lunchVBox.getChildren().clear();
     	            Label error = new Label(caloryError());
     	            error.setTextFill(Color.RED);
@@ -266,7 +279,7 @@ public class MealGeneratorController {
  	           error.setTextFill(Color.RED);
  	           lunchVBox.getChildren().add(error);
  	        }
- 	        else if(Integer.parseInt(lunchCalTextField.getText())>1000||Integer.parseInt(lunchCalTextField.getText())<=0) {
+ 	        else if(Integer.parseInt(lunchCalTextField.getText())>1000||Integer.parseInt(lunchCalTextField.getText())<=100) {
  	            lunchVBox.getChildren().clear();
  	            Label error = new Label(caloryError());
  	            error.setTextFill(Color.RED);
@@ -316,7 +329,7 @@ public class MealGeneratorController {
  	           error.setTextFill(Color.RED);
  	           dinnerVBox.getChildren().add(error);
  	        }
- 	        else if(Integer.parseInt(dinnerCalTextField.getText())>1000||Integer.parseInt(dinnerCalTextField.getText())<=0) {
+ 	        else if(Integer.parseInt(dinnerCalTextField.getText())>1000||Integer.parseInt(dinnerCalTextField.getText())<=100) {
  	            dinnerVBox.getChildren().clear();
  	            Label error = new Label(caloryError());
  	            error.setTextFill(Color.RED);
@@ -365,7 +378,7 @@ public class MealGeneratorController {
   	           error.setTextFill(Color.RED);
   	           dinnerVBox.getChildren().add(error);
   	        }
-  	        else if(Integer.parseInt(dinnerCalTextField.getText())>1000||Integer.parseInt(dinnerCalTextField.getText())<=0) {
+  	        else if(Integer.parseInt(dinnerCalTextField.getText())>1000||Integer.parseInt(dinnerCalTextField.getText())<=100) {
   	            dinnerVBox.getChildren().clear();
   	            Label error = new Label(caloryError());
   	            error.setTextFill(Color.RED);
@@ -412,7 +425,7 @@ public class MealGeneratorController {
                 snackEnterLabel.setText(noEntryError("snack"));
                 snackEnterLabel.setTextFill(Color.RED);
             }
-            else if(Integer.parseInt(snackCalTextField.getText())>1000||Integer.parseInt(snackCalTextField.getText())<=0) {
+            else if(Integer.parseInt(snackCalTextField.getText())>1000||Integer.parseInt(snackCalTextField.getText())<=100) {
             	snackEnterLabel.setText(caloryError());
                 snackEnterLabel.setTextFill(Color.RED);
             }
@@ -500,7 +513,7 @@ public class MealGeneratorController {
    }
    
    String caloryError() {
-	   String error = "Error: Calories must be between 0 and 1000 (Does not include 0).";
+	   String error = "Error: Calories must be between 100 and 1000 (Does not include 100).";
 	   return error;
    }
    
