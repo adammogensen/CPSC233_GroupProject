@@ -510,7 +510,5 @@ public class MealGeneratorController {
 	  String error =  "Error: Can't generate a Meal with non-integer value.";
 	  return error;
    }
-   
-
 }
 
