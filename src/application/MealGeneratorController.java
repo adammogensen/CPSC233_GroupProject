@@ -109,7 +109,7 @@ public class MealGeneratorController {
     private VBox dinnerVBox;
 
     @FXML
-    void userGenerateBF(ActionEvent addMealEvent) {
+    void userGenerateBF(ActionEvent bFGenEvent) {
         try {
         if(bFCalTextField.getText().isEmpty()){
             bFVBox.getChildren().clear();
@@ -158,7 +158,7 @@ public class MealGeneratorController {
     }
     
     @FXML
-    void userRegenBF(ActionEvent event) {
+    void userRegenBF(ActionEvent regenBFEvent) {
     	try {
             if(bFCalTextField.getText().isEmpty()){
                 bFVBox.getChildren().clear();
@@ -209,7 +209,7 @@ public class MealGeneratorController {
     
 
     @FXML
-    void userGenerateLunch(ActionEvent event) {
+    void userGenerateLunch(ActionEvent lunchGenEvent) {
     	 try {
     	       if(lunchCalTextField.getText().isEmpty()){
     	           lunchVBox.getChildren().clear();
@@ -258,7 +258,7 @@ public class MealGeneratorController {
     }
     
     @FXML
-    void userRegenLunch(ActionEvent regenLunch) {
+    void userRegenLunch(ActionEvent regenLunchEvent) {
     	try {
  	       if(lunchCalTextField.getText().isEmpty()){
  	           lunchVBox.getChildren().clear();
@@ -308,7 +308,7 @@ public class MealGeneratorController {
     	
     
     @FXML
-    void userGenerateDinner(ActionEvent event) {
+    void userGenerateDinner(ActionEvent dinnerGenEvent) {
     	try {
  	       if(dinnerCalTextField.getText().isEmpty()){
  	           dinnerVBox.getChildren().clear();
@@ -357,7 +357,7 @@ public class MealGeneratorController {
     }
 
     @FXML
-    void userRegenDinner(ActionEvent event) {
+    void userRegenDinner(ActionEvent regenDinnerEvent) {
     	try {
   	       if(dinnerCalTextField.getText().isEmpty()){
   	           dinnerVBox.getChildren().clear();
@@ -406,7 +406,7 @@ public class MealGeneratorController {
     	
 
     @FXML
-    void userAddSnack(ActionEvent event) {
+    void userAddSnack(ActionEvent addSnackEvent) {
     	try {
             if(snackCalTextField.getText().isEmpty()){
                 snackEnterLabel.setText(noEntryError("snack"));
