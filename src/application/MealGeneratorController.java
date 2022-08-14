@@ -488,7 +488,7 @@ public class MealGeneratorController {
     * This method is used for setting daily recommended calories into Meal generator Scene
     * according to user-inputed body data.
     */
-   void setDailyRecomCalroies() {
+   void setDailyRecomCalories() {
        dailyCalLabel.setText(String.valueOf(appUser.calculateDailyCalories(appUser.getAge(),appUser.getHeight(), appUser.getWeight())));
    }
 

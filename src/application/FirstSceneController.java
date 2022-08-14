@@ -94,7 +94,7 @@ public class FirstSceneController {
         mealGenController.setSex();
         mealGenController.setHeight();
         mealGenController.setWeight();
-        mealGenController.setDailyRecomCalroies();
+        mealGenController.setDailyRecomCalories();
         mealGenController.setBMI();
   	
 
