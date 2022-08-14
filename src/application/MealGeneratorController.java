@@ -19,9 +19,7 @@ public class MealGeneratorController {
 	int breakfastCals = 0;
 	int lunchCals = 0;
 	int dinnerCals = 0;
-	private boolean bFGenerated = false;
-	private boolean lunchGenerated = false;
-	private boolean dinnerGenerated = false;
+
 	
 	@FXML
 	private Label greetMsgLabel;
@@ -150,7 +148,6 @@ public class MealGeneratorController {
     	generateBFButton.setVisible(false);
     	//Adding calories from meal to the daily total
     	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText())+ breakfastCals));
-    	bFGenerated = true;
     	}
        }catch(NumberFormatException e) {
            bFVBox.getChildren().clear();
@@ -162,7 +159,6 @@ public class MealGeneratorController {
     
     @FXML
     void userRegenBF(ActionEvent event) {
-    	if(bFGenerated) {
     	try {
             if(bFCalTextField.getText().isEmpty()){
                 bFVBox.getChildren().clear();
@@ -209,13 +205,8 @@ public class MealGeneratorController {
             bFVBox.getChildren().add(error);
     }
     	}
-    	else {
-    		bFVBox.getChildren().clear();
-            Label error = new Label(regenError("breakfast"));
-            error.setTextFill(Color.RED);
-            bFVBox.getChildren().add(error);
-    	}
-    }
+    	
+    
 
     @FXML
     void userGenerateLunch(ActionEvent event) {
@@ -257,7 +248,6 @@ public class MealGeneratorController {
     	generateLunchButton.setVisible(false);
     	//Adding calories from meal to the daily total
     	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) + lunchCals));
-    	lunchGenerated = true;
     }
     	 }catch(NumberFormatException e) {
     		lunchVBox.getChildren().clear();
@@ -269,7 +259,6 @@ public class MealGeneratorController {
     
     @FXML
     void userRegenLunch(ActionEvent regenLunch) {
-    	if(lunchGenerated) {
     	try {
  	       if(lunchCalTextField.getText().isEmpty()){
  	           lunchVBox.getChildren().clear();
@@ -316,13 +305,7 @@ public class MealGeneratorController {
             lunchVBox.getChildren().add(error);
     	}
     	}
-    	else {
-    	    lunchVBox.getChildren().clear();
-	        Label error = new Label(regenError("lunch"));
-	        error.setTextFill(Color.RED);
-	        lunchVBox.getChildren().add(error);
-    	}
-    }
+    	
     
     @FXML
     void userGenerateDinner(ActionEvent event) {
@@ -364,7 +347,6 @@ public class MealGeneratorController {
     	generateDinnerButton.setVisible(false);
     	//Adding calories from meal to the daily total
     	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) + dinnerCals));
-    	dinnerGenerated = true;
     }
     	}catch(NumberFormatException e) {
     		dinnerVBox.getChildren().clear();
@@ -376,7 +358,6 @@ public class MealGeneratorController {
 
     @FXML
     void userRegenDinner(ActionEvent event) {
-    	if(dinnerGenerated) {
     	try {
   	       if(dinnerCalTextField.getText().isEmpty()){
   	           dinnerVBox.getChildren().clear();
@@ -422,14 +403,7 @@ public class MealGeneratorController {
             dinnerVBox.getChildren().add(error);
     	}
     	}
-    	else {
-    		dinnerVBox.getChildren().clear();
-            Label error = new Label(regenError("dinner"));
-            error.setTextFill(Color.RED);
-            dinnerVBox.getChildren().add(error);
-    	}
-    }
-
+    	
 
     @FXML
     void userAddSnack(ActionEvent event) {
@@ -538,11 +512,6 @@ public class MealGeneratorController {
    String entryNotIntError() {
 	  String error =  "Error: Can't generate a Meal with non-integer value.";
 	  return error;
-   }
-   
-   String regenError(String mealName) {
-	   String error = "Error: Try to generate a " + mealName +" first before using regenerate.";
-	   return error;
    }
 }
 
