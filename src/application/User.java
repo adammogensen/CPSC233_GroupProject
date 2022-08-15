@@ -77,11 +77,11 @@ public class User {
 		double bMICalc = weight / (this.height * this.height);
 
 			if (bMICalc < 18.5)
-					bMI = "underweight";
+					bMI = String.format("%.2f: Underweight", bMICalc);
 				else if(bMICalc < 25)
-					bMI = "normal weight";
+					bMI = String.format("%.2f: Normal Weight", bMICalc);
 				else if(bMICalc >= 25)
-					bMI = "Obese";
+					bMI = String.format("%.2f: Overweight", bMICalc);
 			return bMI;
 	}
 	
