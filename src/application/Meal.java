@@ -11,6 +11,7 @@ public class Meal {
 	private Fruit accessFruit = new Fruit("", 0);
 	private Dairy accessDairy = new Dairy("", 0);
 	private Protein accessProtein = new Protein("", 0);
+	
 
 	//Constructor for Meal Class
 	Meal(String name, int goalCals){
@@ -36,8 +37,9 @@ public class Meal {
 		int calories = 0;
 		Random random = new Random();
 		/*Loop to add food until reach calorie goal
-		goalCal parameter is 30 less so that meals will be closer to calorie goal.*/
-		while (calories < goalCalories - 30 && counter < 3) {
+		goalCal parameter is 30 less so that meals will be closer to calorie goal.
+		counter variable is increased whenever */
+		while (calories < goalCalories - 30 && counter <= 4) {
 			int randomFood = random.nextInt(0, masterList.getFoodList().size() - 1);
 			Food addFood = masterList.getFoodList().get(randomFood);
 			if(addFood.canEat() && !this.getFoodInMeal().contains(addFood)) {
@@ -47,7 +49,12 @@ public class Meal {
 			else if (!addFood.canEat()) {
 				counter++;
 			}
+			if(calories >= goalCalories + 200) {
+				this.getFoodInMeal().remove(this.getFoodInMeal().size()-1);
+				calories -= this.getFoodInMeal().get(this.getFoodInMeal().size()-1).getCaloriesPerServing();
+			}
 		}
+		
 		accessProtein.resetProtein();
 		accessGrain.resetGrain();
 		accessFruit.resetFruit();
