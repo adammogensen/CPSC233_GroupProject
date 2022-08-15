@@ -21,11 +21,11 @@ import javafx.scene.paint.Color;
 public class MealGeneratorController {
 	
 	//setting up instance variables and object used in this class.
-	User appUser = new User();
+	private User appUser = new User();
 	Stage applicationStage;
-	int breakfastCals = 0;
-	int lunchCals = 0;
-	int dinnerCals = 0;
+	private int breakfastCals = 0;
+	private int lunchCals = 0;
+	private int dinnerCals = 0;
 	
 	//setting up interactive parts created in FXML
 	@FXML
@@ -482,6 +482,14 @@ public class MealGeneratorController {
         			+ "at bottom of the window. \nPlease enter calories with respect to your goal (Gaining weight or Losing weight) "
         			+ "and Enjoy the App!");
     	}
+    }
+    
+    /**
+     * Getter method for user class
+     * @return User object appUser.
+     */
+    User getUser() {
+    	return appUser;
     }
     
     /**
