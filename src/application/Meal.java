@@ -18,39 +18,9 @@ public class Meal {
 		goalCalories = goalCals;
 		foodInMeal = new ArrayList <Food>();
 	}
-	
-	Meal(Meal toCopy){
-		this.nameOfMeal = toCopy.nameOfMeal;
-		this.setGoalCalories(toCopy.getGoalCalories());
-		this.foodInMeal = toCopy.foodInMeal;
-	}
-
-	//Method to add food items into Meal
-	void addFood(Food nameOfFood) {
-		Food copyFood = new Food (nameOfFood);
-		foodInMeal.add(copyFood);
-		
-	}
-	
-	//Getters/Setters
-	String getNameOfMeal() {
-		return nameOfMeal;
-	}
-
-	void setNameOfMeal(String nameOfMeal) {
-		this.nameOfMeal = nameOfMeal;
-	}
 
 	ArrayList <Food> getFoodInMeal() {
 		return foodInMeal;
-	}
-	
-	private int getGoalCalories() {
-		return goalCalories;
-	}
-
-	public void setGoalCalories(int goalCalories) {
-		this.goalCalories = goalCalories;
 	}
 
 	/**
