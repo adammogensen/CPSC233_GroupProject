@@ -24,10 +24,9 @@ import javafx.stage.Stage;
 public class FirstSceneController {
 	//setting up variables
 	Stage applicationStage;
-	String errorMessage;
-	boolean isValidInput = true;
-	boolean isEmpty = true;
-	boolean fileFoundFlag = false;
+	private String errorMessage;
+	private boolean isValidInput = true;
+	private boolean isEmpty = true;
 
 	
 	//setting up interactive parts created in FXML
@@ -86,7 +85,7 @@ public class FirstSceneController {
     	VBox root = loader.load(new FileInputStream("src/application/MealGeneratorTracker.fxml"));
 		MealGeneratorController mealGenController = (MealGeneratorController)loader.getController();
 		mealGenController.applicationStage = applicationStage;//connect gainControllerStage to primary stage.
-		storeUserData(mealGenController.appUser);
+		storeUserData(mealGenController.getUser());
 		mealGenController.setGreetingMsg();
 		mealGenController.setCalLabel();
 		mealGenController.setName();
