@@ -7,11 +7,6 @@ public class Dairy extends Food implements FoodRegulation{
 	Dairy(String name, int calories){
 		super(name, calories);
 	}
-	
-	//Return max target for control in Meal Generator
-	public static int getMaxTarget() {
-		return MAXMEALDAIRY;
-	}
 
 	@Override
 	public boolean canEat(){

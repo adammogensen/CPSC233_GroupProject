@@ -7,12 +7,7 @@ public class Protein extends Food implements FoodRegulation{
 	Protein(String name, int calories){
 		super(name, calories);
 	}
-
-	//Return max target for control in Meal Generator
-	public static int getMaxTarget() {
-		return MAXMEALPROTEIN;
-	}
-
+	
 	@Override
 	public boolean canEat() {
 		if (proteinInMeal < MAXMEALPROTEIN) {

@@ -8,11 +8,6 @@ public class Fruit extends Food implements FoodRegulation{
 		super(fruitName, fruitCalories);
 	}
 	
-	//Return max target for control in Meal Generator
-	public static int getMaxTarget() {
-		return MAXMEALFRUIT;
-	}
-	
 	@Override
 	public boolean canEat() {
 		if (fruitInMeal < MAXMEALFRUIT) {
