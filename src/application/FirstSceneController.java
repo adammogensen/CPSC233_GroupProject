@@ -242,7 +242,7 @@ public class FirstSceneController {
     * @return An error message that tell user they've entered invalid value and try again.
     */
     String getError() {
-    	errorMessage = "Error:Please enter an Integer/real number and try again.";    	
+    	errorMessage = "Error: Please enter an Integer/real number and try again.";    	
     	return errorMessage;
     }
  
@@ -253,7 +253,7 @@ public class FirstSceneController {
      * @return An error message that tell user they've entered nothing.
      */
     String noEntryError() {
-    	String error = "Error:Nothing is entered.";
+    	String error = "Error: Nothing is entered.";
     	return error;
     }
     }//end class

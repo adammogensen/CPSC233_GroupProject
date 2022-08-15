@@ -264,9 +264,9 @@ public class MealGeneratorController {
                 //Generate lunch.
     	        else {    	
     	        	lunchVBox.getChildren().clear();
-    	    	    Label mealName = new Label ("Meal 2");
+    	    	    Label mealName = new Label ("Lunch");
     	    	    //New Meal object based on calorie goal input
-    	    	    Meal lunch = new Meal("Meal 2", Integer.parseInt(lunchCalTextField.getText()));
+    	    	    Meal lunch = new Meal("Lunch", Integer.parseInt(lunchCalTextField.getText()));
     			    lunch.generateMeal();
     			    lunchVBox.getChildren().add(mealName);
     			
@@ -317,9 +317,9 @@ public class MealGeneratorController {
     	lunchCals = 0;
     	lunchVBox.getChildren().clear();
     	
-    	Label mealName = new Label ("Meal 2");
+    	Label mealName = new Label ("Lunch");
     	lunchVBox.getChildren().add(mealName);
-    	Meal lunch = new Meal("Meal 2", Integer.parseInt(lunchCalTextField.getText()));
+    	Meal lunch = new Meal("Lunch", Integer.parseInt(lunchCalTextField.getText()));
     	lunch.getFoodInMeal().clear();
 		lunch.generateMeal();
     	
@@ -363,9 +363,9 @@ public class MealGeneratorController {
  	        }
  	        else {
  	    dinnerVBox.getChildren().clear();
-    	Label mealName = new Label ("Meal 3");
+    	Label mealName = new Label ("Dinner");
     	//New Meal object based on calorie goal input
-    	Meal dinner = new Meal("Meal 3", Integer.parseInt(dinnerCalTextField.getText()));
+    	Meal dinner = new Meal("Dinner", Integer.parseInt(dinnerCalTextField.getText()));
 		dinner.generateMeal();
 		dinnerVBox.getChildren().add(mealName);
 		
@@ -416,9 +416,9 @@ public class MealGeneratorController {
     	dinnerCals = 0;
     	dinnerVBox.getChildren().clear();
     	
-    	Label mealName = new Label ("Meal 3");
+    	Label mealName = new Label ("Dinner");
     	dinnerVBox.getChildren().add(mealName);
-    	Meal dinner = new Meal("Meal 3", Integer.parseInt(dinnerCalTextField.getText()));
+    	Meal dinner = new Meal("Dinner", Integer.parseInt(dinnerCalTextField.getText()));
     	dinner.getFoodInMeal().clear();
 		dinner.generateMeal();
     	
