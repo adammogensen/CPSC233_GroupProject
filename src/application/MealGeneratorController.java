@@ -15,7 +15,7 @@ import javafx.scene.paint.Color;
  * different meals also add snack that will interact with user entered data(between 100 and 1000).It would display 
  * different error message when user made either invalid entry or entered nothing.
  * 
- * @author Haoping(Ryan) Zheng, Adam Mogensen, Mun Seok 
+ * @author Haoping(Ryan) Zheng, Adam Mogenson, Mun Seok Suh
  *
  */
 public class MealGeneratorController {
@@ -27,9 +27,9 @@ public class MealGeneratorController {
 	private int lunchCals = 0;
 	private int dinnerCals = 0;
 	
-	//setting up interactive parts created in FXML
-	@FXML
-	private Label greetMsgLabel;
+	  //setting up interactive parts created in FXML
+	  @FXML
+    private Label greetMsgLabel;
     
     @FXML
     private Label heightLabel;
@@ -178,7 +178,6 @@ public class MealGeneratorController {
         		}
         }
     
-    @FXML
     /**
      * This method is used to regenerate the Breakfast meal, with respect to user-entered calories. It clears the current
      * VBox and re-adds HBoxes to the VBox in respect to the number of Food objects in the generated meal. It re-updates the
@@ -186,6 +185,7 @@ public class MealGeneratorController {
      * 
      * @param regenBFEvent Parameter that indicates it's a breakfast-regenerate Event.
      */
+    @FXML
     void userRegenBF(ActionEvent regenBFEvent) {
     	//Try...catch method to check if user entry is an integer.
     	try {
@@ -239,9 +239,6 @@ public class MealGeneratorController {
                 }
     	}
     	
-    	
-    
-
     @FXML
     /**
      * This method is used to generate a Lunch meal, with respect to user-entered calories. It creates a
@@ -303,11 +300,14 @@ public class MealGeneratorController {
                    lunchVBox.getChildren().add(error);
                    }
     }
+    
+
     /**
      * This method is used for regenerating the Lunch meal, with respect to user-entered calories. It clears the current
      * VBox and re-adds HBoxes to the VBox in respect to the number of Food objects in the generated meal. It re-updates the
      * Daily Calorie Counter. It also sets an error message when user entered invalid entry.
-     * 
+     *
+     * @param regenLunchEvent Parameter that indicates it's a lunch-regenerate Event.
      */
     @FXML
     void userRegenLunch(ActionEvent regenLunchEvent) {
@@ -325,37 +325,36 @@ public class MealGeneratorController {
  	            lunchVBox.getChildren().add(error);
  	        }
  	        else {
-    	//Reset the value/items in the VBox of the previous meal
-    	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) - lunchCals));
-    	lunchCals = 0;
-    	lunchVBox.getChildren().clear();
+ 	        	//Reset the value/items in the VBox of the previous meal
+ 	        	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) - lunchCals));
+ 	        	lunchCals = 0;
+ 	        	lunchVBox.getChildren().clear();
     	
-    	Label mealName = new Label ("Lunch");
-    	lunchVBox.getChildren().add(mealName);
-    	Meal lunch = new Meal("Lunch", Integer.parseInt(lunchCalTextField.getText()));
-    	lunch.getFoodInMeal().clear();
-		lunch.generateMeal();
+ 	        	Label mealName = new Label ("Lunch");
+ 	        	lunchVBox.getChildren().add(mealName);
+ 	        	Meal lunch = new Meal("Lunch", Integer.parseInt(lunchCalTextField.getText()));
+ 	        	lunch.getFoodInMeal().clear();
+ 	        	lunch.generateMeal();
     	
-    	for (Food f: lunch.getFoodInMeal()) {
-    		HBox rows = new HBox();
-    		Label foodName = new Label("Food: " + f.getNameOfFood());
-    		Label foodCals = new Label("\t Calories: " + String.valueOf(f.getCaloriesPerServing()));
-    		rows.getChildren().addAll(foodName, foodCals);	
-    		lunchVBox.getChildren().add(rows);
-    		lunchCals += f.getCaloriesPerServing();
-    	}
+ 	        	for (Food f: lunch.getFoodInMeal()) {
+ 	        		HBox rows = new HBox();
+ 	        		Label foodName = new Label("Food: " + f.getNameOfFood());
+ 	        		Label foodCals = new Label("\t Calories: " + String.valueOf(f.getCaloriesPerServing()));
+ 	        		rows.getChildren().addAll(foodName, foodCals);		        
+ 	        		lunchVBox.getChildren().add(rows);    		
+ 	        		lunchCals += f.getCaloriesPerServing();
+ 	        		}
     	
-    	Label totalCalsLabel = new Label("Total Meal Calories: " + String.valueOf(lunchCals));
-    	lunchVBox.getChildren().add(totalCalsLabel);
-    	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) + lunchCals));
-
-    }
-    	}catch(NumberFormatException e) {
-    		lunchVBox.getChildren().clear();
-            Label error = new Label(entryNotIntError());
-            error.setTextFill(Color.RED);
-            lunchVBox.getChildren().add(error);
-    	}
+ 	        	Label totalCalsLabel = new Label("Total Meal Calories: " + String.valueOf(lunchCals));
+ 	        	lunchVBox.getChildren().add(totalCalsLabel);
+ 	        	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) + lunchCals));
+ 	        	}
+ 	       }catch(NumberFormatException e) {
+ 	    	   lunchVBox.getChildren().clear();
+ 	    	   Label error = new Label(entryNotIntError());
+ 	    	   error.setTextFill(Color.RED);
+ 	    	   lunchVBox.getChildren().add(error);
+ 	    	   }
     	}
     	
     /**
@@ -364,7 +363,7 @@ public class MealGeneratorController {
      * then displays the total calories of the meal. Then it updates the Daily Calorie Counter.
      * It also sets an error message when user entered invalid entry.
      * 
-     * @param bFGenEvent event that represents a breakfast-generated event.
+     * @param dinnerGenEvent event that represents a dinner-generated event.
      */
     @FXML
     void userGenerateDinner(ActionEvent dinnerGenEvent) {
@@ -421,6 +420,7 @@ public class MealGeneratorController {
      * VBox and re-adds HBoxes to the VBox in respect to the number of Food objects in the generated meal. It re-updates the
      * Daily Calorie Counter. It also sets an error message when user entered invalid entry.
      * 
+     * @param regenDinnerEvent Parameter that indicates it's a dinner-regenerate Event.
      */
     @FXML
     void userRegenDinner(ActionEvent regenDinnerEvent) {
@@ -438,42 +438,43 @@ public class MealGeneratorController {
   	            dinnerVBox.getChildren().add(error);
   	        }
   	        else {
-    	//Reset the value/items in the VBox of the previous meal
-    	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) - dinnerCals));
-    	dinnerCals = 0;
-    	dinnerVBox.getChildren().clear();
+  	        	//Reset the value/items in the VBox of the previous meal
+  	        	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) - dinnerCals));
+  	        	dinnerCals = 0;
+  	        	dinnerVBox.getChildren().clear();
     	
-    	Label mealName = new Label ("Dinner");
-    	dinnerVBox.getChildren().add(mealName);
-    	Meal dinner = new Meal("Dinner", Integer.parseInt(dinnerCalTextField.getText()));
-    	dinner.getFoodInMeal().clear();
-		dinner.generateMeal();
+  	        	Label mealName = new Label ("Dinner");
+  	        	dinnerVBox.getChildren().add(mealName);
+  	        	Meal dinner = new Meal("Dinner", Integer.parseInt(dinnerCalTextField.getText()));
+  	        	dinner.getFoodInMeal().clear();
+  	        	dinner.generateMeal();
     	
-    	for (Food f: dinner.getFoodInMeal()) {
-    		HBox rows = new HBox();
-    		Label foodName = new Label("Food: " + f.getNameOfFood());
-    		Label foodCals = new Label("\t Calories: " + String.valueOf(f.getCaloriesPerServing()));
-    		rows.getChildren().addAll(foodName, foodCals);	
-    		dinnerVBox.getChildren().add(rows);
-    		dinnerCals += f.getCaloriesPerServing();
-    	}
-    	
-    	Label totalCalsLabel = new Label("Total Meal Calories: " + String.valueOf(dinnerCals));
-    	dinnerVBox.getChildren().add(totalCalsLabel);
-    	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) + dinnerCals));
-    }
-    	}catch(NumberFormatException e) {
-    		dinnerVBox.getChildren().clear();
-            Label error = new Label(entryNotIntError());
-            error.setTextFill(Color.RED);
-            dinnerVBox.getChildren().add(error);
-    	}
+
+  	        	for (Food f: dinner.getFoodInMeal()) {
+  	        		HBox rows = new HBox();
+  	        		Label foodName = new Label("Food: " + f.getNameOfFood());
+  	        		Label foodCals = new Label("\t Calories: " + String.valueOf(f.getCaloriesPerServing()));
+  	        		rows.getChildren().addAll(foodName, foodCals);	
+  	        		dinnerVBox.getChildren().add(rows);
+  	        		dinnerCals += f.getCaloriesPerServing();
+  	        		}
+  	        	Label totalCalsLabel = new Label("Total Meal Calories: " + String.valueOf(dinnerCals));
+  	        	dinnerVBox.getChildren().add(totalCalsLabel);
+  	        	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) + dinnerCals));
+  	        	}
+  	       }catch(NumberFormatException e) {
+  	    	   dinnerVBox.getChildren().clear();
+  	    	   Label error = new Label(entryNotIntError());
+  	    	   error.setTextFill(Color.RED);
+  	    	   dinnerVBox.getChildren().add(error);
+  	    	   }
     	}
     	
     /**
      * This method takes the value of the TextField and converts it to an integer, then adds it to the Total
      * Daily Calories Counter. 
-     * @param addSnackEvent
+     *
+     * @param addSnackEvent Parameter that indicates it's an add snack event.
      */
     @FXML
     void userAddSnack(ActionEvent addSnackEvent) {
@@ -510,7 +511,6 @@ public class MealGeneratorController {
     void setGreetingMsg() {
     	if(greetMsgLabel==null);
     	else {
-
         	greetMsgLabel.setText("Hello " + appUser.getName() +",\nYour body data is displayed on the right:\nYou can generate"
         			+ " 3 different meals by entering a calorie goal for each meal then pressing \nthe generate Breakfast"
         			+ "/Lunch/Dinner below. Also you can always regenerate a meal\nif you are unhappy with the generated meal."
@@ -582,16 +582,35 @@ public class MealGeneratorController {
        bMILabel.setText(appUser.getBMI(appUser.getHeight(), appUser.getWeight()));
    }
    
+   /**
+    * This method is used for setting an error message when user entered a value that is not between the 
+    * range of 100 and 1000.
+    *
+    * @return error message when user entered a number that is not between 100 and 1000.
+    */
    String caloryError() {
 	   String error = "Error: Calories must be between 100 and 1000 (Does not include 100).";
 	   return error;
    }
    
+   /**
+    * This method is used for setting an error message when user entered nothing.
+    * The parameter mealName represents different meals.
+    *
+    * @param mealName this parameter represents different meal's name when this method is called.
+    * @return error message when user entered nothing.
+    */
    String noEntryError(String mealName) {
 	   String error = "Error: Can't generate " + mealName +" without a calories entry.";
 	   return error;
    }
    
+  /**
+   * This method is used for setting an error message when user entered a value that
+   * is not a integer.
+   *
+   * @return error message when user entered a non-integer value.
+   */
    String entryNotIntError() {
 	  String error =  "Error: Can't generate a Meal with non-integer value.";
 	  return error;

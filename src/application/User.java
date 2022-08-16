@@ -22,13 +22,12 @@ public class User {
 	//Constructors
 	
 	/**
-	 * 
 	 * This is the constructors of user class
-	 * 
 	 */
 	public User(){
 		
 	}
+	
 	/**
 	 * This method is a constructors that score the parameters value 
 	 * into the instance variables of name, weight, height, age and Male
@@ -48,12 +47,23 @@ public class User {
 		isMale = Male;
 	}
 	
+	
 	//Getters and Setters for instance variables
-
+	
+	/**
+	 * This gets name String data from the user instance.
+	 * 
+	 * @return returns name of the User.
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * sets the name of user instance by using parameter name.
+	 * 
+	 * @param name this String value would be set as name of user instance.
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -65,10 +75,10 @@ public class User {
 	 * 
 	 * @return returns weight of the User.
 	 */
-
 	public double getWeight() {
 		return weight;
 	}
+	
 	/**
 	 * sets the weight of user instance by using parameter weight as its greater than 0.
 	 * 
@@ -85,10 +95,10 @@ public class User {
 	 * 
 	 * @return returns height of the User.
 	 */
-
 	public double getHeight() {
 		return height;
 	}
+	
 	/**
 	 * sets the height of user instance by using parameter height as its greater than 0.
 	 * 
@@ -105,10 +115,10 @@ public class User {
 	 * 
 	 * @return returns age of the User.
 	 */
-
 	public int getAge() {
 		return age;
 	}
+	
 	/**
 	 * sets the age of user instance by using parameter age as its greater than 0.
 	 * 
@@ -123,16 +133,16 @@ public class User {
 	/**
 	 * This gets the boolean isMale data from the user instance
 	 * 
-	 * @return returns isMale of the User.
+	 * @return returns true if user's sex is male, false if it's not.
 	 */
-   
 	boolean isMale() {
 		return isMale;
 	}
+	
 	/**
-	 * Uses parameter isMale as of user instance only if its equal to isMale.
+	 * Uses boolean parameter to set user instance's isMale boolean result.
 	 * 
-	 * @param isMale this boolean would be set as isMale of user instance if its equal to isMale.
+	 * @param isMale this boolean's result would be set as the result of isMale in the user instance.
 	 */
 	void setMale(boolean isMale) {
 		this.isMale = isMale;
@@ -146,6 +156,7 @@ public class User {
 	public int getDailyCalories() {
 		return requiredCalories;
 	}
+	
 	/**
 	 * sets the dailyCalories of user instance by using parameter dailyCalories as its greater than 0.
 	 * 
@@ -161,6 +172,7 @@ public class User {
 	/**
 	 * Calculates user BMI according to a formula found on the website:
 	 * https://www.nhlbi.nih.gov/health/educational/lose_wt/BMI/bmi-m.htm
+	 * 
 	 * @param height represents the height double value of the user.
 	 * @param weight represents the weight double value of the user.
 	 * @return returns the BMI value and text description.
@@ -183,6 +195,7 @@ public class User {
 	/**
 	 * Calculates the hypothetical amount of calories that the User would burn each day
 	 * without accounting for activity. Represented as "Daily Recommended Calories"
+	 * 
 	 * @param age integer that represents age of the user
 	 * @param height represents the height double value of the user.
 	 * @param weight represents the weight double value of the user.
