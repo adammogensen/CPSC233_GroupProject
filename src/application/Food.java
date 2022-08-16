@@ -14,11 +14,7 @@ public class Food implements FoodRegulation{
 		this.caloriesPerServing  = calories;
 	}
 	
-	Food(Food toCopy){
-		this.nameOfFood = toCopy.nameOfFood;
-		this.caloriesPerServing = toCopy.caloriesPerServing;
-	}
-	
+	//Setters and Getters
 	public String getNameOfFood() {
 		return nameOfFood;
 	}
@@ -26,7 +22,7 @@ public class Food implements FoodRegulation{
 		return caloriesPerServing;
 	}
 	
-	//Will be overridden
+	//To be overridden by the food group classes' canEat() method
 	public boolean canEat() {
 		return true;
 	}
