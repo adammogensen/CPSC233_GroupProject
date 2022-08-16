@@ -207,7 +207,7 @@ public class MealGeneratorController {
             //Regenerate breakfast.
          
           else{
-        	  //Reset the value/items in the VBox of the previous meal 
+        	  //Reset the value/items in the VBox of the previous meal and rest of codes are the same as userGenerateBF method.
         	  mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText())- breakfastCals));
           	  breakfastCals = 0;
         	  bFVBox.getChildren().clear();
@@ -326,7 +326,7 @@ public class MealGeneratorController {
  	            lunchVBox.getChildren().add(error);
  	        }
  	        else {
- 	        	//Reset the value/items in the VBox of the previous meal
+ 	        	//Reset the value/items in the VBox of the previous meal and reset are the same as userGenerateLunch method.
  	        	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) - lunchCals));
  	        	lunchCals = 0;
  	        	lunchVBox.getChildren().clear();
@@ -440,7 +440,7 @@ public class MealGeneratorController {
   	            dinnerVBox.getChildren().add(error);
   	        }
   	        else {
-  	        	//Reset the value/items in the VBox of the previous meal
+  	        	//Reset the value/items in the VBox of the previous meal and rest of code are the same as userGenerateDinner method.
   	        	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) - dinnerCals));
   	        	dinnerCals = 0;
   	        	dinnerVBox.getChildren().clear();

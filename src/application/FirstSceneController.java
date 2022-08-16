@@ -104,12 +104,14 @@ public class FirstSceneController {
     	//error when user entered invalid value.
     	else if(!isValidInput)
     		return;
+    	//generate new scene that connected with MealGeneratorController.
     	else{
         Scene MealGenScene = new Scene(root,950,1000);
     	applicationStage.setTitle("Meal Generator");
     	applicationStage.setScene(MealGenScene);
     	}
     	}
+    	//catch IO exceptions when FXML file is missing.
     	catch(IOException e) {
         	fileMissingErrorLabel.setText("Your fxml file is missing, please make sure they are under src/application .");    	
         	}
