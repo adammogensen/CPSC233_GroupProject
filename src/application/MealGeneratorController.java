@@ -416,36 +416,36 @@ public class MealGeneratorController {
   	            dinnerVBox.getChildren().add(error);
   	        }
   	        else {
-    	//Reset the value/items in the VBox of the previous meal
-    	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) - dinnerCals));
-    	dinnerCals = 0;
-    	dinnerVBox.getChildren().clear();
+  	        	//Reset the value/items in the VBox of the previous meal
+  	        	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) - dinnerCals));
+  	        	dinnerCals = 0;
+  	        	dinnerVBox.getChildren().clear();
     	
-    	Label mealName = new Label ("Dinner");
-    	dinnerVBox.getChildren().add(mealName);
-    	Meal dinner = new Meal("Dinner", Integer.parseInt(dinnerCalTextField.getText()));
-    	dinner.getFoodInMeal().clear();
-		dinner.generateMeal();
+  	        	Label mealName = new Label ("Dinner");
+  	        	dinnerVBox.getChildren().add(mealName);
+  	        	Meal dinner = new Meal("Dinner", Integer.parseInt(dinnerCalTextField.getText()));
+  	        	dinner.getFoodInMeal().clear();
+  	        	dinner.generateMeal();
     	
-    	for (Food f: dinner.getFoodInMeal()) {
-    		HBox rows = new HBox();
-    		Label foodName = new Label("Food: " + f.getNameOfFood());
-    		Label foodCals = new Label("\t Calories: " + String.valueOf(f.getCaloriesPerServing()));
-    		rows.getChildren().addAll(foodName, foodCals);	
-    		dinnerVBox.getChildren().add(rows);
-    		dinnerCals += f.getCaloriesPerServing();
-    	}
-    	
-    	Label totalCalsLabel = new Label("Total Meal Calories: " + String.valueOf(dinnerCals));
-    	dinnerVBox.getChildren().add(totalCalsLabel);
-    	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) + dinnerCals));
-    }
-    	}catch(NumberFormatException e) {
-    		dinnerVBox.getChildren().clear();
-            Label error = new Label(entryNotIntError());
-            error.setTextFill(Color.RED);
-            dinnerVBox.getChildren().add(error);
-    	}
+
+  	        	for (Food f: dinner.getFoodInMeal()) {
+  	        		HBox rows = new HBox();
+  	        		Label foodName = new Label("Food: " + f.getNameOfFood());
+  	        		Label foodCals = new Label("\t Calories: " + String.valueOf(f.getCaloriesPerServing()));
+  	        		rows.getChildren().addAll(foodName, foodCals);	
+  	        		dinnerVBox.getChildren().add(rows);
+  	        		dinnerCals += f.getCaloriesPerServing();
+  	        		}
+  	        	Label totalCalsLabel = new Label("Total Meal Calories: " + String.valueOf(dinnerCals));
+  	        	dinnerVBox.getChildren().add(totalCalsLabel);
+  	        	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) + dinnerCals));
+  	        	}
+  	       }catch(NumberFormatException e) {
+  	    	   dinnerVBox.getChildren().clear();
+  	    	   Label error = new Label(entryNotIntError());
+  	    	   error.setTextFill(Color.RED);
+  	    	   dinnerVBox.getChildren().add(error);
+  	    	   }
     	}
     	
 
