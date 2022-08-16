@@ -3,10 +3,21 @@ package application;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * This class is responsible for storing food objects in ArrayLists. It also has a method
+ * that has a key function in the project which is randomly generating meals.
+ * @author Adam Mogensen
+ *
+ */
 public class Meal {
 	private String mealName = "";
 	private ArrayList <Food> foodInMeal;
 	private int goalCalories = 0;
+	
+	/*These objects provide access to their respective classes and are used
+	 * to reset the static integer value of each class
+	 */
+	
 	private Grain accessGrain = new Grain("", 0);
 	private Fruit accessFruit = new Fruit("", 0);
 	private Dairy accessDairy = new Dairy("", 0);

@@ -1,5 +1,11 @@
 package application;
 
+/**
+ * This is a subclass of Food that is used to create Protein objects and track 
+ * the number of Protein objects in a meal.
+ * @author Adam Mogensen
+ *
+ */
 public class Protein extends Food implements FoodRegulation{
 	//Track number of Protein items in each meal
 	private static int proteinInMeal = 0;

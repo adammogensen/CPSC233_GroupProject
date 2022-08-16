@@ -2,11 +2,18 @@ package application;
 
 import java.util.ArrayList;
 
-//This class is designed to hold the data of the food objects that we created,
-
+/**
+ * //This class is designed to hold the data of the food objects that we created in an 
+ * ArrayList which can be accessed by the Meal class for meal generation
+ * @author Adam Mogensen
+ *
+ */
 public class MasterFoodList {
 	private ArrayList <Food> masterList = new ArrayList <Food> ();
 	
+	/**
+	 * Constructor
+	 */
 	MasterFoodList(){
 	}
 	

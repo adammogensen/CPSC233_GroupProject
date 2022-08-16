@@ -8,7 +8,11 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 
-
+/**
+ * This class is used to start the application
+ * @author Haoping(Ryan) Zheng
+ *
+ */
 public class Main extends Application {
 	@Override
 	/*

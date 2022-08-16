@@ -1,5 +1,11 @@
 package application;
 
+/**
+ * This is a subclass of Food that is used to create Fruit objects and track 
+ * the number of Fruit objects in a meal.
+ * @author Adam Mogensen
+ *
+ */
 public class Fruit extends Food implements FoodRegulation{
 	
 	//Track number of Fruit items in each meal
