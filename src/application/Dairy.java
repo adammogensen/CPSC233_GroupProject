@@ -1,6 +1,10 @@
 package application;
 
-
+/**
+ * 
+ * @author Adam Mogenson
+ *
+ */
 public class Dairy extends Food implements FoodRegulation{
 	//Track number of Dairy items in each meal
  	private static int dairyInMeal = 0;

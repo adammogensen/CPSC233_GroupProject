@@ -15,7 +15,7 @@ import javafx.scene.paint.Color;
  * different meals also add snack that will interact with user entered data(between 100 and 1000).It would display 
  * different error message when user made either invalid entry or entered nothing.
  * 
- * @author Haoping(Ryan) Zheng, Adam Mogenson, Mun Seok 
+ * @author Haoping(Ryan) Zheng, Adam Mogenson, Mun Seok Suh
  *
  */
 public class MealGeneratorController {
@@ -174,13 +174,13 @@ public class MealGeneratorController {
         		}
         }
     
-    @FXML
     /**
      * This method is used for regenerate breakfast meal, with respect to user-entered calories.It would 
      * set error message when user entered invalid entry.
      * 
      * @param regenBFEvent Parameter that indicates it's a breakfast-regenerate Event.
      */
+    @FXML
     void userRegenBF(ActionEvent regenBFEvent) {
     	//Try...catch method to check if user entry is an integer.
     	try {
@@ -296,6 +296,12 @@ public class MealGeneratorController {
                    }
     }
     
+    /**
+     * This method is used for regenerate lunch meal, with respect to user-entered calories.It would 
+     * set error message when user entered invalid entry.
+     * 
+     * @param regenLunchEvent Parameter that indicates it's a lunch-regenerate Event.
+     */
     @FXML
     void userRegenLunch(ActionEvent regenLunchEvent) {
     	try {
@@ -312,37 +318,36 @@ public class MealGeneratorController {
  	            lunchVBox.getChildren().add(error);
  	        }
  	        else {
-    	//Reset the value/items in the VBox of the previous meal
-    	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) - lunchCals));
-    	lunchCals = 0;
-    	lunchVBox.getChildren().clear();
+ 	        	//Reset the value/items in the VBox of the previous meal
+ 	        	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) - lunchCals));
+ 	        	lunchCals = 0;
+ 	        	lunchVBox.getChildren().clear();
     	
-    	Label mealName = new Label ("Lunch");
-    	lunchVBox.getChildren().add(mealName);
-    	Meal lunch = new Meal("Lunch", Integer.parseInt(lunchCalTextField.getText()));
-    	lunch.getFoodInMeal().clear();
-		lunch.generateMeal();
+ 	        	Label mealName = new Label ("Lunch");
+ 	        	lunchVBox.getChildren().add(mealName);
+ 	        	Meal lunch = new Meal("Lunch", Integer.parseInt(lunchCalTextField.getText()));
+ 	        	lunch.getFoodInMeal().clear();
+ 	        	lunch.generateMeal();
     	
-    	for (Food f: lunch.getFoodInMeal()) {
-    		HBox rows = new HBox();
-    		Label foodName = new Label("Food: " + f.getNameOfFood());
-    		Label foodCals = new Label("\t Calories: " + String.valueOf(f.getCaloriesPerServing()));
-    		rows.getChildren().addAll(foodName, foodCals);	
-    		lunchVBox.getChildren().add(rows);
-    		lunchCals += f.getCaloriesPerServing();
-    	}
+ 	        	for (Food f: lunch.getFoodInMeal()) {
+ 	        		HBox rows = new HBox();
+ 	        		Label foodName = new Label("Food: " + f.getNameOfFood());
+ 	        		Label foodCals = new Label("\t Calories: " + String.valueOf(f.getCaloriesPerServing()));
+ 	        		rows.getChildren().addAll(foodName, foodCals);		        
+ 	        		lunchVBox.getChildren().add(rows);    		
+ 	        		lunchCals += f.getCaloriesPerServing();
+ 	        		}
     	
-    	Label totalCalsLabel = new Label("Total Meal Calories: " + String.valueOf(lunchCals));
-    	lunchVBox.getChildren().add(totalCalsLabel);
-    	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) + lunchCals));
-
-    }
-    	}catch(NumberFormatException e) {
-    		lunchVBox.getChildren().clear();
-            Label error = new Label(entryNotIntError());
-            error.setTextFill(Color.RED);
-            lunchVBox.getChildren().add(error);
-    	}
+ 	        	Label totalCalsLabel = new Label("Total Meal Calories: " + String.valueOf(lunchCals));
+ 	        	lunchVBox.getChildren().add(totalCalsLabel);
+ 	        	mealTotalCalLabel.setText(String.valueOf(Integer.parseInt(mealTotalCalLabel.getText()) + lunchCals));
+ 	        	}
+ 	       }catch(NumberFormatException e) {
+ 	    	   lunchVBox.getChildren().clear();
+ 	    	   Label error = new Label(entryNotIntError());
+ 	    	   error.setTextFill(Color.RED);
+ 	    	   lunchVBox.getChildren().add(error);
+ 	    	   }
     	}
     	
     
