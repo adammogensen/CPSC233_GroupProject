@@ -28,6 +28,14 @@ public class User {
 	}
 	
 	//Getters and Setters for instance variables
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	public double getWeight() {
 		return weight;
 	}
@@ -36,6 +44,7 @@ public class User {
 			this.weight = weight;
 		}
 	}
+	
 	public double getHeight() {
 		return height;
 	}
@@ -44,6 +53,7 @@ public class User {
 			this.height = height;
 		}
 	}
+	
 	public int getAge() {
 		return age;
 	}
@@ -52,13 +62,13 @@ public class User {
 			this.age = age;
 		}
 	}
-
 	boolean isMale() {
 		return isMale;
 	}
 	void setMale(boolean isMale) {
 		this.isMale = isMale;
 	}
+	
 	public int getDailyCalories() {
 		return requiredCalories;
 	}
@@ -68,8 +78,13 @@ public class User {
 		}
 	}
 	
-	
-	//Methods
+	/**
+	 * Calculates user BMI according to a formula found on the website:
+	 * https://www.nhlbi.nih.gov/health/educational/lose_wt/BMI/bmi-m.htm
+	 * @param height Entered by user on FirstSceneController interface
+	 * @param weight Entered by user on FirstSceneController interface
+	 * @return
+	 */
 	String getBMI(double height, double weight){
 		bMI = "";
 		//BMI calculation:
@@ -85,6 +100,14 @@ public class User {
 			return bMI;
 	}
 	
+	/**
+	 * Calculates the hypothetical amount of calories that the User would burn each day
+	 * without accounting for activity. Represented as "Daily Recommended Calories"
+	 * @param age Entered by user on FirstSceneController interface
+	 * @param height Entered by user on FirstSceneController interface
+	 * @param weight Entered by user on FirstSceneController interface
+	 * @return
+	 */
 	double calculateDailyCalories(int age, double height, double weight) {
 		if (isMale) {
 			double bMRHolder = 66 + (13.7 * weight) + (5 * height)-(6.8 * age);
@@ -95,14 +118,6 @@ public class User {
 		    bMR = Double.parseDouble(String.format("%.2f", bMRHolder));
 		}
 		return bMR;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 }
