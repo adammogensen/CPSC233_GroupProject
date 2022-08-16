@@ -2,6 +2,8 @@ package application;
 
 import java.util.ArrayList;
 
+//This class is designed to hold the data of the food objects that we created,
+
 public class MasterFoodList {
 	private ArrayList <Food> masterList = new ArrayList <Food> ();
 	
@@ -75,6 +77,7 @@ public class MasterFoodList {
 		masterList.add(friedeggs);	
 	}
 	
+	//Retrieve the ArrayList to get access to the food objects created
 	ArrayList <Food> getFoodList (){
 		return masterList;
 	}

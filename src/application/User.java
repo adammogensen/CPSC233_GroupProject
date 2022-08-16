@@ -49,12 +49,23 @@ public class User {
 	}
 	
 	//Getters and Setters for instance variables
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+
 	
 	/**
 	 * This gets the double weight data from the user instance.
 	 * 
 	 * @return returns weight of the User.
 	 */
+
 	public double getWeight() {
 		return weight;
 	}
@@ -68,11 +79,13 @@ public class User {
 			this.weight = weight;
 		}
 	}
+
 	/**
 	 * This gets the double height data from the user instance.
 	 * 
 	 * @return returns height of the User.
 	 */
+
 	public double getHeight() {
 		return height;
 	}
@@ -86,11 +99,13 @@ public class User {
 			this.height = height;
 		}
 	}
+
 	/**
 	 * This gets the integer age data from the user instance.
 	 * 
 	 * @return returns age of the User.
 	 */
+
 	public int getAge() {
 		return age;
 	}
@@ -104,11 +119,13 @@ public class User {
 			this.age = age;
 		}
 	}
+
 	/**
 	 * This gets the boolean isMale data from the user instance
 	 * 
 	 * @return returns isMale of the User.
 	 */
+   
 	boolean isMale() {
 		return isMale;
 	}
@@ -120,6 +137,7 @@ public class User {
 	void setMale(boolean isMale) {
 		this.isMale = isMale;
 	}
+
 	/**
 	 * This gets the requiredDailycalories data from the user instance.
 	 * 
@@ -141,9 +159,8 @@ public class User {
 	}
 	
 	/**
-	 * This method uses user inputs of height and weight in order to calculate their BMI.
-	 * It returns the BMI value and text description.
-	 * 
+	 * Calculates user BMI according to a formula found on the website:
+	 * https://www.nhlbi.nih.gov/health/educational/lose_wt/BMI/bmi-m.htm
 	 * @param height represents the height double value of the user.
 	 * @param weight represents the weight double value of the user.
 	 * @return returns the BMI value and text description.
@@ -162,13 +179,13 @@ public class User {
 					bMI = String.format("%.2f: Overweight", bMICalc);
 			return bMI;
 	}
+	
 	/**
-	 * This method uses user age, height and weight in order to calculate their daily calories.
-	 * It returns daily recommended calories of the user.
-	 * 
+	 * Calculates the hypothetical amount of calories that the User would burn each day
+	 * without accounting for activity. Represented as "Daily Recommended Calories"
 	 * @param age integer that represents age of the user
-	 * @param height height represents the height double value of the user.
-	 * @param weight weight represents the weight double value of the user.
+	 * @param height represents the height double value of the user.
+	 * @param weight represents the weight double value of the user.
 	 * @return the daily recommended calories of the user.
 	 */
 	double calculateDailyCalories(int age, double height, double weight) {
@@ -181,14 +198,6 @@ public class User {
 		    bMR = Double.parseDouble(String.format("%.2f", bMRHolder));
 		}
 		return bMR;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 }

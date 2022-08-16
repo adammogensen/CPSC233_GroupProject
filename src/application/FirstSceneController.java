@@ -18,7 +18,7 @@ import javafx.stage.Stage;
  * passing data into next scene if user-entered data are all valid.It would output error message depending on different
  * errors user had made.
  * 
- * @author Haoping(Ryan) Zheng, Adam Mogenson
+ * @author Haoping(Ryan) Zheng, Adam Mogensen
  *
  */
 public class FirstSceneController {
