@@ -71,7 +71,12 @@ public class Meal {
 			
 			//Random food chosen from the masterList
 			int randomFood = random.nextInt(0, masterList.getFoodList().size() - 1);
-			Food addFood = masterList.getFoodList().get(randomFood);	
+			Food addFood = masterList.getFoodList().get(randomFood);
+			
+			/*canEat() method in food class if overridden by one of the Food Group Classes (Protein,Dairy,Grain,Fruit)
+			 * Checks to see if food in meal exceeds the maximum number of food per group allowed. Also checks if food is 
+			 * already in the meal to prevent overlap
+			 */
 			if(addFood.canEat() && !this.getFoodInMeal().contains(addFood)) {
 				this.getFoodInMeal().add(addFood);
 				calories += addFood.getCaloriesPerServing();
