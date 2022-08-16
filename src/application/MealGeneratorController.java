@@ -239,7 +239,7 @@ public class MealGeneratorController {
 
     @FXML
     /**
-     * This method is used for generate lunch meal, with respect to user-entered calories.It would 
+     * This method is used for generating the lunch meal, with respect to user-entered calories. It would 
      * set error message when user entered invalid entry.
      * 
      * @param lunchGenEvent this parameter indicates this method would generate a lunch.
