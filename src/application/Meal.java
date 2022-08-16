@@ -13,7 +13,12 @@ public class Meal {
 	private Protein accessProtein = new Protein("", 0);
 	
 
-	//Constructor for Meal Class
+	/**
+	 * Constructor for Meal Class
+	 * @param name name of Meal
+	 * @param goalCals Calorie goal for the meal
+	 */
+	
 	Meal(String name, int goalCals){
 		mealName = name;
 		goalCalories = goalCals;
@@ -21,7 +26,10 @@ public class Meal {
 		foodInMeal = new ArrayList <Food>();
 	}
 	
-	//Used to retrieve the food items in the meal
+	/**
+	 * Used to retrieve the food items in the meal
+	 * @return ArrayList of food items in meal
+	 */
 	ArrayList <Food> getFoodInMeal() {
 		return foodInMeal;
 	}
@@ -30,7 +38,7 @@ public class Meal {
 	 * This method produces a meal with randomized food items from the four created food groups.
 	 * Each food group has a different maximum number of food items per meal (eg. max 2 proteins per meal) based
 	 * on the constant values in the Food Regulation interface. Meals will be created based on the calorie goal 
-	 * inputed by the user
+	 * inputed by the user. 
 	 * @param goalCal provide by the user in a TextField
 	 */
 	void generateMeal(){

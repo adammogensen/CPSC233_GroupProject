@@ -4,7 +4,11 @@ package application;
 public class Dairy extends Food implements FoodRegulation{
 	//Track number of Dairy items in each meal
  	private static int dairyInMeal = 0;
-	//Constructor
+	/**
+	 * Constructor
+	 * @param name name of Dairy object
+	 * @param calories number of calories in Dairy object
+	 */
 	Dairy(String name, int calories){
 		super(name, calories);
 	}

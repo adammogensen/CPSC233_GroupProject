@@ -10,6 +10,10 @@ public class MasterFoodList {
 	MasterFoodList(){
 	}
 	
+	/**
+	 * This method holds the Food objects that were created to be added to the generated meals.
+	 * Adds all food objects to masterList.
+	 */
 	void addFoodToList() {
 		Fruit banana = new Fruit("Banana",105);
 		masterList.add(banana);
@@ -77,7 +81,10 @@ public class MasterFoodList {
 		masterList.add(friedeggs);	
 	}
 	
-	//Retrieve the ArrayList to get access to the food objects created
+	/**
+	 * Used to retrieve the ArrayList of food. Intended to use after .addFoodToList is invoked
+	 * @return masterList ArrayList
+	 */
 	ArrayList <Food> getFoodList (){
 		return masterList;
 	}

@@ -5,7 +5,11 @@ public class Fruit extends Food implements FoodRegulation{
 	//Track number of Fruit items in each meal
 	private static int fruitInMeal = 0;
 	
-	//Constructor
+	/**
+	 * Constructor
+	 * @param fruitName name of Fruit object
+	 * @param fruitCalories number of calories in Fruit object
+	 */
 	Fruit(String fruitName, int fruitCalories){
 		super(fruitName, fruitCalories);
 	}

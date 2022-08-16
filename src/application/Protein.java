@@ -4,7 +4,11 @@ public class Protein extends Food implements FoodRegulation{
 	//Track number of Protein items in each meal
 	private static int proteinInMeal = 0;
 	
-	//Constructor
+	/**
+	 * Constructor
+	 * @param name name of Protein object
+	 * @param calories number of calories in Protein object
+	 */
 	Protein(String name, int calories){
 		super(name, calories);
 	}

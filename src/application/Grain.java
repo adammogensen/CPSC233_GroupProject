@@ -6,7 +6,11 @@ public class Grain extends Food implements FoodRegulation{
 	private static int grainInMeal = 0;
 
 	
-	//Constructor
+	/**
+	 * Constructor
+	 * @param name name of Grain object
+	 * @param calories number of calories in Grain object
+	 */
 	Grain(String name, int calories){
 		super(name, calories);
 	}
