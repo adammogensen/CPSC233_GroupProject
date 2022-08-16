@@ -23,6 +23,11 @@ public class Dairy extends Food implements FoodRegulation{
 	 * Flag for the generateMeal() method in the Meal class, returns true if the 
 	 * number of Dairy objects in the meal is less than the maximum Dairy 
 	 * allowance in each meal (from the Food Regulation interface)
+	 * 
+	 * @return true if the number of Dairy objects in the meal is less than the maximum Dairy
+	 * allowance in each meal.
+	 * @return false if the number of Dairy objects in the meal is more than or equal to the maximum Dairy
+	 * allowance in each meal.
 	 */
 	@Override
 	public boolean canEat(){

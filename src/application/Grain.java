@@ -22,8 +22,13 @@ public class Grain extends Food implements FoodRegulation{
 
 	/**
 	 * Flag for the generateMeal() method in the Meal class, returns true if the 
-	 * number of Grain objects in the meal is less than the maximum Grain 
+	 * number of Grain objects in the meal is less than the maximum Grain
 	 * allowance in each meal (from the Food Regulation interface)
+	 * 
+	 * @return true if the number of Grain objects in the meal is less than the
+	 * maximum Grain allowance in each meal.
+	 * @return false if the number of Grain objects in the meal is more than or 
+	 * equal to the maximum Grain allowance in each meal.
 	 */
 	@Override
 	public boolean canEat() {

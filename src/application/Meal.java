@@ -56,19 +56,11 @@ public class Meal {
 		//Create new masterList object and add food objects to the ArrayList
 		MasterFoodList masterList = new MasterFoodList();
 		masterList.addFoodToList();
-		
-		/*Counter variable counts the number of times that a food group has reached it's 'Meal Maximum'
-		 * once the counter reaches 4, the loop stops to prevent an infinite loop 
-		 */
 		int counter = 0;
-		
-		//Calories variable represents the total calories of the current meal
 		int calories = 0;
-		
 		/*Creating a Random object to use for it's .nextInt() method for producing random
 		 * indexing into the masterList
 		 */
-		
 		Random random = new Random();
 		
 		/*Loop to add food until calories in the meal reaches the calorie goal
@@ -79,13 +71,7 @@ public class Meal {
 			
 			//Random food chosen from the masterList
 			int randomFood = random.nextInt(0, masterList.getFoodList().size() - 1);
-			Food addFood = masterList.getFoodList().get(randomFood);
-			
-			/*canEat() method in food class if overridden by one of the Food Group Classes (Protein,Dairy,Grain,Fruit)
-			 * Checks to see if food in meal exceeds the maximum number of food per group allowed. Also checks if food is 
-			 * already in the meal to prevent overlap
-			 */
-			
+			Food addFood = masterList.getFoodList().get(randomFood);	
 			if(addFood.canEat() && !this.getFoodInMeal().contains(addFood)) {
 				this.getFoodInMeal().add(addFood);
 				calories += addFood.getCaloriesPerServing();
@@ -93,15 +79,10 @@ public class Meal {
 			/*When the Food Group has reached it's limit for number of food items in the meal
 			 * the counter is incremented up
 			 */
-			
 			else if (!addFood.canEat()) {
 				counter++;
 			}
-			/*This if statement checks to make sure that the last item in the list does not make
-			 * the total calories greatly exceed the goal calories. For example, if the goal calories are 
-			 * 500, and the current calories are 460, then a 'steak' is added, the meal calories will become
-			 * 830.
-			 */
+			//This method is for making sure the result meal won't over the entered calories too much.
 			if(calories >= goalCalories + 200) {
 				this.getFoodInMeal().remove(this.getFoodInMeal().size()-1);
 				calories -= this.getFoodInMeal().get(this.getFoodInMeal().size()-1).getCaloriesPerServing();

@@ -23,6 +23,9 @@ public class Protein extends Food implements FoodRegulation{
 	 * Flag for the generateMeal() method in the Meal class, returns true if the 
 	 * number of Protein objects in the meal is less than the maximum Protein 
 	 * allowance in each meal (from the Food Regulation interface)
+	 * 
+	 * @return true if the number of Protein objects in the meal is less than the maximum Protein 
+	 * @return false if the number of Protein objects in the meal is more than the maximum Protein. 
 	 */
 	@Override
 	public boolean canEat() {
