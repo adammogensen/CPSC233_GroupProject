@@ -1,6 +1,11 @@
 package application;
 
-
+/**
+ * This is a subclass of Food that is used to create Grain objects and track 
+ * the number of Grain objects in a meal.
+ * @author Adam Mogensen
+ *
+ */
 public class Grain extends Food implements FoodRegulation{
 	//Track number of Grain items in each meal
 	private static int grainInMeal = 0;

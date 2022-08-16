@@ -1,6 +1,12 @@
 package application;
 
 
+/**
+ * This is a subclass of Food that is used to create Dairy objects and track 
+ * the number of Dairy objects in a meal.
+ * @author Adam Mogensen
+ *
+ */
 public class Dairy extends Food implements FoodRegulation{
 	//Track number of Dairy items in each meal
  	private static int dairyInMeal = 0;

@@ -3,7 +3,7 @@ package application;
  * User stores user inputed data; name, weight, height, age, isMale.
  * its has method to calculate the BMI and daily recommended calories using the stored data in the user class.
  * 
- * @author Mun Seok Suh,Haoping(Ryan) Zheng, Adam Mogenson
+ * @author Mun Seok Suh,Haoping(Ryan) Zheng, Adam Mogensen
  *
  */
 public class User {
